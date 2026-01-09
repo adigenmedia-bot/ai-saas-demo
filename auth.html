@@ -1,1 +1,287 @@
- <!DOCTYPE html><html lang="en" class=""><head><meta charset="utf-8" /><title>Login / Register - AI SaaS Website System</title><meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="icon" type="image/x-icon" href="favicon.ico" /><script src="https://cdn.tailwindcss.com"></script><script> tailwind.config = { darkMode: 'class', theme: { extend: { colors: { 'brand-primary': '#0D0E25', 'brand-secondary': '#1D1E3A', 'brand-accent-purple': '#8A2BE2', 'brand-accent-cyan': '#00FFFF' } } } } </script><style> body { background-color: #0D0E25; color: #E0E0E0; } .dark body { background-color: #0D0E25; color: #E0E0E0; } .light body { background-color: #F3F4F6; color: #111827; } .glass-effect { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); } .light .glass-effect { background: rgba(255, 255, 255, 0.7); border: 1px solid rgba(255, 255, 255, 0.7); } .cta-gradient { background-image: linear-gradient(to right, #8A2BE2, #00FFFF); } .glow-border { animation: glowing 5s linear infinite; } .light .glow-border { border-color: #8A2BE2; } /* For Invoice Printing */ @media print { body * { visibility: hidden; } #invoice-container, #invoice-container * { visibility: visible; } #invoice-container { position: absolute; left: 0; top: 0; width: 100%; } .no-print { display: none; } } </style></head><body class="antialiased font-sans bg-brand-primary text-gray-200"><div class="min-h-screen flex items-center justify-center bg-brand-primary p-4"><div class="w-full max-w-md"><div class="text-center mb-8"><a href="index.html" class="text-3xl font-bold text-white">AI</a></div><!-- Login Form --><div id="login-form" class="glass-effect p-8 rounded-2xl shadow-2xl"><h2 class="text-2xl font-bold text-center text-white">Welcome Back</h2><p class="text-center text-gray-400 mt-2">Sign in to continue to your dashboard.</p><form class="mt-8 space-y-6"><div><label for="email-login" class="block text-sm font-medium text-gray-300">Email Address</label><input id="email-login" type="email" required class="mt-1 block w-full bg-white/5 border border-white/20 rounded-md py-2 px-3 text-white focus:outline-none focus:ring-brand-accent-purple"></div><div><label for="password-login" class="block text-sm font-medium text-gray-300">Password</label><input id="password-login" type="password" required class="mt-1 block w-full bg-white/5 border border-white/20 rounded-md py-2 px-3 text-white focus:outline-none focus:ring-brand-accent-purple"></div><div class="text-sm"><a href="#" class="font-medium text-brand-accent-cyan hover:text-brand-accent-cyan/80">Forgot your password?</a></div><div><a href="dashboard.html" class="w-full flex justify-center cta-gradient text-white font-semibold py-3 px-4 rounded-lg shadow-lg hover:opacity-90">Sign In</a></div></form><p class="mt-6 text-center text-sm text-gray-400">Don't have an account? <a href="#" id="show-register-btn" class="font-medium text-brand-accent-cyan hover:text-brand-accent-cyan/80">Sign up</a></p></div><!-- Register Form --><div id="register-form" class="glass-effect p-8 rounded-2xl shadow-2xl hidden"><h2 class="text-2xl font-bold text-center text-white">Create an Account</h2><p class="text-center text-gray-400 mt-2">Start your 14-day free trial today.</p><form class="mt-8 space-y-6"><div><label for="name-register" class="block text-sm font-medium text-gray-300">Full Name</label><input id="name-register" type="text" required class="mt-1 block w-full bg-white/5 border border-white/20 rounded-md py-2 px-3 text-white focus:outline-none focus:ring-brand-accent-purple"></div><div><label for="email-register" class="block text-sm font-medium text-gray-300">Email Address</label><input id="email-register" type="email" required class="mt-1 block w-full bg-white/5 border border-white/20 rounded-md py-2 px-3 text-white focus:outline-none focus:ring-brand-accent-purple"></div><div><label for="password-register" class="block text-sm font-medium text-gray-300">Password</label><input id="password-register" type="password" required class="mt-1 block w-full bg-white/5 border border-white/20 rounded-md py-2 px-3 text-white focus:outline-none focus:ring-brand-accent-purple"></div><div><a href="dashboard.html" class="w-full flex justify-center cta-gradient text-white font-semibold py-3 px-4 rounded-lg shadow-lg hover:opacity-90">Create Account</a></div></form><p class="mt-6 text-center text-sm text-gray-400">Already have an account? <a href="#" id="show-login-btn" class="font-medium text-brand-accent-cyan hover:text-brand-accent-cyan/80">Sign in</a></p></div></div></div><script> document.addEventListener('DOMContentLoaded', () => { const initTheme = () => { const themeToggle = document.getElementById('theme-toggle'); const darkIcon = document.getElementById('theme-toggle-dark-icon'); const lightIcon = document.getElementById('theme-toggle-light-icon'); const applyTheme = (isDark) => { if (isDark) { document.documentElement.classList.add('dark'); if (darkIcon) darkIcon.classList.remove('hidden'); if (lightIcon) lightIcon.classList.add('hidden'); } else { document.documentElement.classList.remove('dark'); if (darkIcon) darkIcon.classList.add('hidden'); if (lightIcon) lightIcon.classList.remove('hidden'); } }; if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) { applyTheme(true); } else { applyTheme(false); } if (themeToggle) { themeToggle.addEventListener('click', () => { const isDarkMode = document.documentElement.classList.toggle('dark'); localStorage.theme = isDarkMode ? 'dark' : 'light'; applyTheme(isDarkMode); }); } }; const initMobileMenu = () => { const button = document.getElementById('mobile-menu-button'); const menu = document.getElementById('mobile-menu'); if (button && menu) { button.addEventListener('click', () => menu.classList.toggle('hidden')); } }; const initPricingToggle = () => { const monthlyBtn = document.getElementById('monthly-btn'); const yearlyBtn = document.getElementById('yearly-btn'); const pricingItems = document.querySelectorAll('.pricing-item'); const toggleBg = document.getElementById('pricing-toggle-bg'); if (monthlyBtn && yearlyBtn && toggleBg) { const toggle = (isMonthly) => { monthlyBtn.classList.toggle('text-opacity-50', !isMonthly); yearlyBtn.classList.toggle('text-opacity-50', isMonthly); toggleBg.style.transform = isMonthly ? 'translateX(0%)' : 'translateX(100%)'; pricingItems.forEach(item => { item.querySelector('.price').textContent = item.getAttribute(isMonthly ? 'data-monthly-price' : 'data-yearly-price'); }); }; monthlyBtn.addEventListener('click', () => toggle(true)); yearlyBtn.addEventListener('click', () => toggle(false)); } }; const initFaqAccordion = () => { document.querySelectorAll('.faq-item').forEach((item, index) => { const button = item.querySelector('.faq-toggle'); if(button) { button.addEventListener('click', () => { document.querySelectorAll('.faq-item').forEach((otherItem, otherIndex) => { if (index !== otherIndex) { otherItem.querySelector('.faq-answer')?.classList.add('hidden'); otherItem.querySelector('.faq-icon')?.classList.remove('rotate-180'); } }); item.querySelector('.faq-answer')?.classList.toggle('hidden'); item.querySelector('.faq-icon')?.classList.toggle('rotate-180'); }); } }); }; const initSidebarToggle = () => { const button = document.getElementById('sidebar-toggle'); const sidebar = document.getElementById('sidebar'); if (button && sidebar) { button.addEventListener('click', () => { sidebar.classList.toggle('w-64'); sidebar.classList.toggle('w-20'); document.querySelectorAll('.sidebar-brand-text, .sidebar-nav-text').forEach(el => el.classList.toggle('hidden')); }); } }; const initAuthFormToggle = () => { const showLoginBtn = document.getElementById('show-login-btn'); const showRegisterBtn = document.getElementById('show-register-btn'); const loginForm = document.getElementById('login-form'); const registerForm = document.getElementById('register-form'); if (showLoginBtn && showRegisterBtn && loginForm && registerForm) { showLoginBtn.addEventListener('click', (e) => { e.preventDefault(); loginForm.classList.remove('hidden'); registerForm.classList.add('hidden'); }); showRegisterBtn.addEventListener('click', (e) => { e.preventDefault(); loginForm.classList.add('hidden'); registerForm.classList.remove('hidden'); }); } }; initTheme(); initMobileMenu(); initPricingToggle(); initFaqAccordion(); initSidebarToggle(); initAuthFormToggle(); }); </script><script> (function() { // Disable Right Click document.addEventListener('contextmenu', function(e) { e.preventDefault(); return false; }); // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U document.addEventListener('keydown', function(e) { if ( e.keyCode === 123 || // F12 (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) || // Ctrl+Shift+I/J (e.ctrlKey && e.keyCode === 85) // Ctrl+U ) { e.preventDefault(); return false; } }); })(); </script><script> document.addEventListener('DOMContentLoaded', function() { var allowedPages = ['index.html', 'features.html', 'pricing.html', 'auth.html', 'dashboard.html', 'login.html']; document.addEventListener('click', function(e) { var target = e.target.closest('a'); if (target) { var href = target.getAttribute('href'); // Allow strict "javascript:void(0)" or "#" or empty (for UI interactions) if (!href || href === '#' || href.startsWith('javascript:')) { return; } // Check if allowed var isAllowed = false; // Clean href to get filename (e.g., ./auth.html -> auth.html) var filename = href.split('/').pop().split('?')[0].split('#')[0]; if (allowedPages.includes(filename)) { isAllowed = true; } if (!isAllowed) { e.preventDefault(); window.open('https://themeforest.net/', '_blank'); } } }); }); </script></body></html> 
+
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+    <meta charset="utf-8" /><title>Login / Register - AI SaaS Website System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { 'brand-primary': '#0D0E25', 'brand-secondary': '#1D1E3A', 'brand-accent-purple': '#8A2BE2', 'brand-accent-cyan': '#00FFFF' } } } }
+    </script>
+    <style>
+body {
+  background-color: #0D0E25;
+  color: #E0E0E0;
+}
+.dark body {
+  background-color: #0D0E25;
+  color: #E0E0E0;
+}
+.light body {
+  background-color: #F3F4F6;
+  color: #111827;
+}
+.glass-effect {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.light .glass-effect {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+.cta-gradient {
+    background-image: linear-gradient(to right, #8A2BE2, #00FFFF);
+}
+.glow-border {
+  animation: glowing 5s linear infinite;
+}
+.light .glow-border {
+  border-color: #8A2BE2;
+}
+
+/* For Invoice Printing */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #invoice-container, #invoice-container * {
+    visibility: visible;
+  }
+  #invoice-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+  .no-print {
+    display: none;
+  }
+}
+</style>
+</head>
+<body class="antialiased font-sans bg-brand-primary text-gray-200">
+    <div class="min-h-screen flex items-center justify-center bg-brand-primary p-4">
+        <div class="w-full max-w-md">
+            <div class="text-center mb-8">
+                <a href="index.html" class="text-3xl font-bold text-white">AI</a>
+            </div>
+            
+            <!-- Login Form -->
+            <div id="login-form" class="glass-effect p-8 rounded-2xl shadow-2xl">
+                <h2 class="text-2xl font-bold text-center text-white">Welcome Back</h2>
+                <p class="text-center text-gray-400 mt-2">Sign in to continue to your dashboard.</p>
+                <form class="mt-8 space-y-6">
+                    <div>
+                        <label for="email-login" class="block text-sm font-medium text-gray-300">Email Address</label>
+                        <input id="email-login" type="email" required class="mt-1 block w-full bg-white/5 border border-white/20 rounded-md py-2 px-3 text-white focus:outline-none focus:ring-brand-accent-purple">
+                    </div>
+                    <div>
+                        <label for="password-login" class="block text-sm font-medium text-gray-300">Password</label>
+                        <input id="password-login" type="password" required class="mt-1 block w-full bg-white/5 border border-white/20 rounded-md py-2 px-3 text-white focus:outline-none focus:ring-brand-accent-purple">
+                    </div>
+                    <div class="text-sm"><a href="#" class="font-medium text-brand-accent-cyan hover:text-brand-accent-cyan/80">Forgot your password?</a></div>
+                    <div><a href="dashboard.html" class="w-full flex justify-center cta-gradient text-white font-semibold py-3 px-4 rounded-lg shadow-lg hover:opacity-90">Sign In</a></div>
+                </form>
+                <p class="mt-6 text-center text-sm text-gray-400">Don't have an account? <a href="#" id="show-register-btn" class="font-medium text-brand-accent-cyan hover:text-brand-accent-cyan/80">Sign up</a></p>
+            </div>
+
+            <!-- Register Form -->
+            <div id="register-form" class="glass-effect p-8 rounded-2xl shadow-2xl hidden">
+                <h2 class="text-2xl font-bold text-center text-white">Create an Account</h2>
+                <p class="text-center text-gray-400 mt-2">Start your 14-day free trial today.</p>
+                <form class="mt-8 space-y-6">
+                    <div>
+                        <label for="name-register" class="block text-sm font-medium text-gray-300">Full Name</label>
+                        <input id="name-register" type="text" required class="mt-1 block w-full bg-white/5 border border-white/20 rounded-md py-2 px-3 text-white focus:outline-none focus:ring-brand-accent-purple">
+                    </div>
+                    <div>
+                        <label for="email-register" class="block text-sm font-medium text-gray-300">Email Address</label>
+                        <input id="email-register" type="email" required class="mt-1 block w-full bg-white/5 border border-white/20 rounded-md py-2 px-3 text-white focus:outline-none focus:ring-brand-accent-purple">
+                    </div>
+                    <div>
+                        <label for="password-register" class="block text-sm font-medium text-gray-300">Password</label>
+                        <input id="password-register" type="password" required class="mt-1 block w-full bg-white/5 border border-white/20 rounded-md py-2 px-3 text-white focus:outline-none focus:ring-brand-accent-purple">
+                    </div>
+                    <div><a href="dashboard.html" class="w-full flex justify-center cta-gradient text-white font-semibold py-3 px-4 rounded-lg shadow-lg hover:opacity-90">Create Account</a></div>
+                </form>
+                <p class="mt-6 text-center text-sm text-gray-400">Already have an account? <a href="#" id="show-login-btn" class="font-medium text-brand-accent-cyan hover:text-brand-accent-cyan/80">Sign in</a></p>
+            </div>
+        </div>
+    </div>
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    const initTheme = () => {
+        const themeToggle = document.getElementById('theme-toggle');
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+        
+        const applyTheme = (isDark) => {
+            if (isDark) {
+                document.documentElement.classList.add('dark');
+                if (darkIcon) darkIcon.classList.remove('hidden');
+                if (lightIcon) lightIcon.classList.add('hidden');
+            } else {
+                document.documentElement.classList.remove('dark');
+                if (darkIcon) darkIcon.classList.add('hidden');
+                if (lightIcon) lightIcon.classList.remove('hidden');
+            }
+        };
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            applyTheme(true);
+        } else {
+            applyTheme(false);
+        }
+
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                const isDarkMode = document.documentElement.classList.toggle('dark');
+                localStorage.theme = isDarkMode ? 'dark' : 'light';
+                applyTheme(isDarkMode);
+            });
+        }
+    };
+
+    const initMobileMenu = () => {
+        const button = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+        if (button && menu) {
+            button.addEventListener('click', () => menu.classList.toggle('hidden'));
+        }
+    };
+
+    const initPricingToggle = () => {
+        const monthlyBtn = document.getElementById('monthly-btn');
+        const yearlyBtn = document.getElementById('yearly-btn');
+        const pricingItems = document.querySelectorAll('.pricing-item');
+        const toggleBg = document.getElementById('pricing-toggle-bg');
+
+        if (monthlyBtn && yearlyBtn && toggleBg) {
+            const toggle = (isMonthly) => {
+                monthlyBtn.classList.toggle('text-opacity-50', !isMonthly);
+                yearlyBtn.classList.toggle('text-opacity-50', isMonthly);
+                toggleBg.style.transform = isMonthly ? 'translateX(0%)' : 'translateX(100%)';
+                pricingItems.forEach(item => {
+                    item.querySelector('.price').textContent = item.getAttribute(isMonthly ? 'data-monthly-price' : 'data-yearly-price');
+                });
+            };
+            monthlyBtn.addEventListener('click', () => toggle(true));
+            yearlyBtn.addEventListener('click', () => toggle(false));
+        }
+    };
+
+    const initFaqAccordion = () => {
+        document.querySelectorAll('.faq-item').forEach((item, index) => {
+            const button = item.querySelector('.faq-toggle');
+            if(button) {
+                button.addEventListener('click', () => {
+                    document.querySelectorAll('.faq-item').forEach((otherItem, otherIndex) => {
+                        if (index !== otherIndex) {
+                            otherItem.querySelector('.faq-answer')?.classList.add('hidden');
+                            otherItem.querySelector('.faq-icon')?.classList.remove('rotate-180');
+                        }
+                    });
+                    item.querySelector('.faq-answer')?.classList.toggle('hidden');
+                    item.querySelector('.faq-icon')?.classList.toggle('rotate-180');
+                });
+            }
+        });
+    };
+
+    const initSidebarToggle = () => {
+        const button = document.getElementById('sidebar-toggle');
+        const sidebar = document.getElementById('sidebar');
+        if (button && sidebar) {
+            button.addEventListener('click', () => {
+                sidebar.classList.toggle('w-64');
+                sidebar.classList.toggle('w-20');
+                document.querySelectorAll('.sidebar-brand-text, .sidebar-nav-text').forEach(el => el.classList.toggle('hidden'));
+            });
+        }
+    };
+
+    const initAuthFormToggle = () => {
+        const showLoginBtn = document.getElementById('show-login-btn');
+        const showRegisterBtn = document.getElementById('show-register-btn');
+        const loginForm = document.getElementById('login-form');
+        const registerForm = document.getElementById('register-form');
+        if (showLoginBtn && showRegisterBtn && loginForm && registerForm) {
+            showLoginBtn.addEventListener('click', (e) => { e.preventDefault(); loginForm.classList.remove('hidden'); registerForm.classList.add('hidden'); });
+            showRegisterBtn.addEventListener('click', (e) => { e.preventDefault(); loginForm.classList.add('hidden'); registerForm.classList.remove('hidden'); });
+        }
+    };
+
+    initTheme();
+    initMobileMenu();
+    initPricingToggle();
+    initFaqAccordion();
+    initSidebarToggle();
+    initAuthFormToggle();
+});
+</script>
+
+<script>
+(function() {
+    // Disable Right Click
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        return false;
+    });
+
+    // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+    document.addEventListener('keydown', function(e) {
+        if (
+            e.keyCode === 123 || // F12
+            (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) || // Ctrl+Shift+I/J
+            (e.ctrlKey && e.keyCode === 85) // Ctrl+U
+        ) {
+            e.preventDefault();
+            return false;
+        }
+    });
+})();
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var allowedPages = ['index.html', 'features.html', 'pricing.html', 'auth.html', 'dashboard.html', 'login.html'];
+    
+    document.addEventListener('click', function(e) {
+        var target = e.target.closest('a');
+        if (target) {
+            var href = target.getAttribute('href');
+            
+            // Allow strict "javascript:void(0)" or "#" or empty
+            if (!href || href === '#' || href.startsWith('javascript:')) {
+                return;
+            }
+
+            // Check if allowed
+            var isAllowed = false;
+            // Clean href to get filename
+            var filename = href.split('/').pop().split('?')[0].split('#')[0];
+            
+            if (allowedPages.includes(filename)) {
+                isAllowed = true;
+            }
+            
+            // Allow anchor links on the same page
+            if (href.startsWith('#')) {
+                isAllowed = true;
+            }
+            
+            if (!isAllowed) {
+                e.preventDefault();
+                window.open('https://themeforest.net/', '_blank');
+            }
+        }
+    });
+});
+</script>
+</body>
+</html>
