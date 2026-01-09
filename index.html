@@ -1,240 +1,73 @@
-
-<!DOCTYPE html>
-<html lang="en" class="">
-<head>
-    <meta charset="utf-8" />
-    <title>AI SaaS Website System - Launch Your Startup in 24 Hours</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Launch your subscription business in 24 hours with a complete, production-ready system to build, launch, and scale your AI SaaS.">
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-    tailwind.config = {
-        darkMode: 'class',
-        theme: {
-            extend: {
-                colors: { 'brand-primary': '#0D0E25', 'brand-secondary': '#1D1E3A', 'brand-accent-purple': '#8A2BE2', 'brand-accent-cyan': '#00FFFF' },
-                animation: { 'gradient-bg': 'gradient-bg 15s ease infinite', 'float': 'float 6s ease-in-out infinite', 'glowing': 'glowing 5s linear infinite' },
-                keyframes: {
-                    'gradient-bg': { '0%, 100%': { backgroundPosition: '0% 50%' }, '50%': { backgroundPosition: '100% 50%' } },
-                    'float': { '0%, 100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-20px)' } },
-                    'glowing': { '0%': { borderColor: '#8A2BE2', boxShadow: '0 0 5px #8A2BE2' }, '50%': { borderColor: '#00FFFF', boxShadow: '0 0 20px #00FFFF' }, '100%': { borderColor: '#8A2BE2', boxShadow: '0 0 5px #8A2BE2' } }
-                }
-            }
-        }
-    }
-    </script>
-    <link rel="stylesheet" href="assets/css/style.css">
-<link rel="stylesheet" href="/index.css">
-</head>
-<body class="antialiased font-sans bg-brand-primary text-gray-200">
-    <!-- Header -->
-    <header class="sticky top-0 z-50 glass-effect">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16">
-          <a href="index.html" class="text-2xl font-bold text-white">AI</a>
-          <nav class="hidden md:flex items-baseline space-x-4">
-            <a href="features.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Features</a>
-            <a href="pricing.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Pricing</a>
-            <a href="about.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
-            <a href="contact.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</a>
-          </nav>
-          <div class="hidden md:flex items-center space-x-4">
-            <button id="theme-toggle" type="button" class="text-gray-300 hover:text-white">
-                <svg id="theme-toggle-dark-icon" class="h-6 w-6 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-                <svg id="theme-toggle-light-icon" class="h-6 w-6 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.706-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 14.95a1 1 0 010-1.414l.707-.707a1 1 0 011.414 1.414l-.707.707a1 1 0 01-1.414 0zM2 11a1 1 0 100-2H1a1 1 0 100 2h1zM4.343 5.657a1 1 0 011.414 0l.707.707a1 1 0 01-1.414 1.414l-.707-.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-            </button>
-            <a href="auth.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Login</a>
-            <a href="auth.html" class="border border-gray-600 text-gray-300 hover:text-white hover:border-white px-4 py-2 rounded-md text-sm font-medium transition-colors">Start Free Trial</a>
-          </div>
-          <div class="flex md:hidden">
-            <button id="mobile-menu-button" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white focus:outline-none">
-              <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div id="mobile-menu" class="md:hidden hidden">
-        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <a href="features.html" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Features</a>
-            <a href="pricing.html" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Pricing</a>
-            <a href="about.html" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</a>
-            <a href="contact.html" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contact</a>
-            <a href="auth.html" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Login</a>
-            <a href="auth.html" class="border border-gray-600 text-gray-300 hover:text-white hover:border-white block px-3 py-2 rounded-md text-base font-medium transition-colors">Start Free Trial</a>
-        </div>
-      </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="flex-grow">
-      <div class="relative overflow-hidden">
-        <div class="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-brand-accent-purple/30 to-brand-accent-cyan/30 blur-3xl opacity-50"></div>
-        <div class="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 w-[800px] h-[800px] rounded-full bg-gradient-to-bl from-brand-accent-purple/30 to-brand-accent-cyan/30 blur-3xl opacity-50"></div>
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
-          <!-- Hero Section -->
-          <section class="text-center py-20 lg:py-32">
-            <div class="relative w-48 h-48 mx-auto mb-8 animate-float">
-                <div class="absolute inset-0 bg-gradient-to-br from-brand-accent-purple to-brand-accent-cyan rounded-full blur-2xl"></div>
-                <div class="absolute inset-4 bg-brand-primary rounded-full flex items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.375 3.375 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
-                </div>
-            </div>
-            <h1 class="text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight text-white leading-tight">
-              <span class="block">AI Powered</span>
-              <span class="block cta-gradient text-transparent bg-clip-text">SaaS Startup System</span>
-            </h1>
-            <p class="mt-6 max-w-2xl mx-auto text-lg lg:text-xl text-gray-300">
-              Launch your subscription business in 24 hours. The complete, production-ready system to build, launch, and scale your AI SaaS.
-            </p>
-            <div class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
-              <a href="auth.html" class="w-full sm:w-auto inline-block text-center cta-gradient text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:opacity-90 transition-opacity transform hover:scale-105">Start Free Trial</a>
-              <a href="#features" class="w-full sm:w-auto inline-block text-center bg-white/10 border border-white/20 text-white font-semibold py-3 px-8 rounded-lg hover:bg-white/20 transition-colors transform hover:scale-105">View Demo</a>
-            </div>
-          </section>
-
-          <!-- AI Live Tool Preview -->
-          <section class="py-16 lg:py-24">
-            <div class="glass-effect rounded-2xl p-8 lg:p-12 border border-brand-accent-cyan/20">
-              <h2 class="text-center text-3xl lg:text-4xl font-bold text-white mb-8">See The <span class="cta-gradient text-transparent bg-clip-text">AI Magic</span> Live</h2>
-              <div class="bg-brand-primary rounded-lg p-6 shadow-inner">
-                <p class="font-mono text-green-400">> Write a landing page headline for a SaaS that sells AI chatbots.</p>
-                <div class="mt-4 font-mono text-gray-300 animate-pulse">_</div>
-                <p class="mt-4 font-mono text-gray-300">"Automate 90% of your customer support with an AI that never sleeps. Deploy your 24/7 AI agent in minutes."</p>
-              </div>
-            </div>
-          </section>
-
-          <!-- Who Uses This Platform -->
-          <section class="py-16 lg:py-24 text-center">
-            <h2 class="text-3xl lg:text-4xl font-bold text-white">Built For The Next Generation of Innovators</h2>
-            <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="glass-effect p-8 rounded-2xl"><h3 class="text-xl font-semibold text-white">Startup Founders</h3><p class="mt-2 text-gray-400">Launch your MVP faster and cheaper than ever before.</p></div>
-                <div class="glass-effect p-8 rounded-2xl"><h3 class="text-xl font-semibold text-white">Digital Agencies</h3><p class="mt-2 text-gray-400">Build custom AI-powered solutions for your clients.</p></div>
-                <div class="glass-effect p-8 rounded-2xl"><h3 class="text-xl font-semibold text-white">SaaS Developers</h3><p class="mt-2 text-gray-400">Skip the boilerplate and focus on your unique features.</p></div>
-            </div>
-          </section>
-
-          <!-- Dashboard Preview -->
-          <section class="py-16 lg:py-24">
-            <h2 class="text-3xl lg:text-4xl font-bold text-center text-white">Manage Your Empire from a Single Dashboard</h2>
-            <div class="mt-12 relative">
-                <div class="absolute -inset-2 rounded-2xl bg-gradient-to-r from-brand-accent-purple to-brand-accent-cyan opacity-50 blur-xl"></div>
-                <img src="https://picsum.photos/seed/dashboard/1200/700" alt="Dashboard Preview" class="relative rounded-2xl shadow-2xl border border-white/10">
-            </div>
-          </section>
-          
-          <!-- Pricing -->
-          <section class="py-16 lg:py-24">
-              <div class="text-center">
-                <h1 class="text-4xl sm:text-5xl font-extrabold text-white">Choose Your Plan</h1>
-                <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-300">Start for free, then grow with us. Simple, transparent pricing that scales with your needs.</p>
-              </div>
-              <div class="mt-10 flex justify-center">
-                <div class="relative flex p-1 bg-brand-secondary rounded-lg">
-                  <button id="monthly-btn" class="relative w-1/2 rounded-md py-2 text-sm font-medium text-white whitespace-nowrap focus:outline-none sm:w-auto sm:px-8">Monthly</button>
-                  <button id="yearly-btn" class="relative w-1/2 rounded-md py-2 text-sm font-medium text-white whitespace-nowrap focus:outline-none sm:w-auto sm:px-8 text-opacity-50">Yearly (Save 20%)</button>
-                  <div class="absolute inset-0 p-1 pointer-events-none" aria-hidden="true"><div id="pricing-toggle-bg" class="w-1/2 h-full bg-brand-accent-purple/50 rounded-md transform transition-transform"></div></div>
-                </div>
-              </div>
-              <div class="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-                <div class="glass-effect p-8 rounded-2xl flex flex-col h-full">
-                  <h3 class="text-2xl font-bold text-white">Starter</h3><p class="mt-2 text-gray-400">For individuals and small projects.</p>
-                  <div class="mt-6 pricing-item" data-monthly-price="$29" data-yearly-price="$23"><span class="price text-5xl font-extrabold text-white">$29</span><span class="text-lg font-medium text-gray-400">/mo</span></div>
-                  <ul class="mt-8 space-y-4 text-gray-300 flex-grow"><li>1 User</li><li>10,000 AI Credits</li><li>Basic Support</li></ul>
-                  <a href="auth.html" class="mt-8 w-full text-center bg-white/10 border border-white/20 text-white font-semibold py-3 px-8 rounded-lg hover:bg-white/20 transition-colors">Choose Plan</a>
-                </div>
-                <div class="relative glass-effect p-8 rounded-2xl flex flex-col h-full border-2 border-brand-accent-purple glow-border">
-                  <div class="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 px-4 py-1 text-sm font-semibold text-white bg-brand-accent-purple rounded-full">Most Popular</div>
-                  <h3 class="text-2xl font-bold text-white">Pro</h3><p class="mt-2 text-gray-400">For growing startups.</p>
-                  <div class="mt-6 pricing-item" data-monthly-price="$99" data-yearly-price="$79"><span class="price text-5xl font-extrabold text-white">$99</span><span class="text-lg font-medium text-gray-400">/mo</span></div>
-                  <ul class="mt-8 space-y-4 text-gray-300 flex-grow"><li>5 Users</li><li>50,000 AI Credits</li><li>Priority Support</li><li>API Access</li></ul>
-                  <a href="auth.html" class="mt-8 w-full text-center cta-gradient text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:opacity-90 transition-opacity">Choose Plan</a>
-                </div>
-                <div class="glass-effect p-8 rounded-2xl flex flex-col h-full">
-                  <h3 class="text-2xl font-bold text-white">Enterprise</h3><p class="mt-2 text-gray-400">For large-scale applications.</p>
-                  <div class="mt-6 pricing-item" data-monthly-price="Custom" data-yearly-price="Custom"><span class="price text-5xl font-extrabold text-white">Custom</span></div>
-                  <ul class="mt-8 space-y-4 text-gray-300 flex-grow"><li>Unlimited Users</li><li>Custom AI Credits</li><li>Dedicated Support</li></ul>
-                  <a href="contact.html" class="mt-8 w-full text-center bg-white/10 border border-white/20 text-white font-semibold py-3 px-8 rounded-lg hover:bg-white/20 transition-colors">Contact Sales</a>
-                </div>
-              </div>
-          </section>
-
-          <!-- Testimonials -->
-          <section class="py-16 lg:py-24">
-            <h2 class="text-3xl lg:text-4xl font-bold text-center text-white">Join Thousands of Successful Founders</h2>
-            <div class="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
-              <div class="glass-effect p-8 rounded-2xl"><p>"LaunchAI saved us months of development time. We went from idea to paying customers in a weekend. Absolutely game-changing."</p><div class="mt-4 flex items-center"><img class="h-12 w-12 rounded-full" src="https://picsum.photos/id/1005/100/100" alt="User avatar"><div class="ml-4"><p class="font-semibold text-white">Sarah K.</p><p class="text-sm text-gray-400">Founder, InsightBot</p></div></div></div>
-              <div class="glass-effect p-8 rounded-2xl"><p>"As a solo developer, this system was a lifesaver. The code is clean, and the design is stunning."</p><div class="mt-4 flex items-center"><img class="h-12 w-12 rounded-full" src="https://picsum.photos/id/1011/100/100" alt="User avatar"><div class="ml-4"><p class="font-semibold text-white">Mike R.</p><p class="text-sm text-gray-400">Creator, DevFlows</p></div></div></div>
-            </div>
-          </section>
-
-          <!-- FAQ -->
-          <section class="py-16 lg:py-24">
-              <h2 class="text-3xl lg:text-4xl font-bold text-center text-white">Frequently Asked Questions</h2>
-              <div class="mt-12 max-w-3xl mx-auto space-y-4">
-                  <div class="faq-item glass-effect rounded-lg overflow-hidden">
-                      <button class="faq-toggle w-full text-left p-4 flex justify-between items-center text-white font-semibold"><span>Can I customize the design?</span><svg class="faq-icon w-5 h-5 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
-                      <div class="faq-answer p-4 bg-black/20 text-gray-300 hidden">Yes! The entire system is built with Tailwind CSS, making it incredibly easy to change colors, fonts, and layouts to match your brand.</div>
-                  </div>
-                  <div class="faq-item glass-effect rounded-lg overflow-hidden">
-                      <button class="faq-toggle w-full text-left p-4 flex justify-between items-center text-white font-semibold"><span>What payment gateways are supported?</span><svg class="faq-icon w-5 h-5 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
-                      <div class="faq-answer p-4 bg-black/20 text-gray-300 hidden">We have a pre-built integration for Stripe, the industry standard. Adding other gateways is straightforward.</div>
-                  </div>
-                  <div class="faq-item glass-effect rounded-lg overflow-hidden">
-                      <button class="faq-toggle w-full text-left p-4 flex justify-between items-center text-white font-semibold"><span>Is there a money-back guarantee?</span><svg class="faq-icon w-5 h-5 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
-                      <div class="faq-answer p-4 bg-black/20 text-gray-300 hidden">Yes, we offer a 30-day money-back guarantee, no questions asked. We are confident you will love it.</div>
-                  </div>
-              </div>
-          </section>
-
-          <!-- Final Conversion Wall -->
-          <section class="py-16 lg:py-24">
-              <div class="cta-gradient rounded-2xl p-8 lg:p-16 text-center shadow-2xl relative overflow-hidden">
-                  <h2 class="text-3xl lg:text-5xl font-extrabold text-white">Ready to Launch Your AI Empire?</h2>
-                  <p class="mt-4 max-w-2xl mx-auto text-white/80 text-lg">Your journey from idea to recurring revenue starts now. Stop dreaming, start building.</p>
-                  <div class="mt-8"><a href="auth.html" class="inline-block bg-white text-brand-accent-purple font-semibold py-4 px-10 rounded-lg shadow-lg text-lg hover:bg-gray-200 transition-colors transform hover:scale-105">Get Started Now - It's Free</a></div>
-              </div>
-          </section>
-
-        </div>
-      </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-brand-secondary">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div>
-            <h3 class="text-xl font-bold text-white">AI</h3>
-            <p class="mt-2 text-gray-400 text-sm">Launch your subscription business in 24 hours.</p>
-          </div>
-          <div>
-            <h4 class="text-gray-200 font-semibold">Pages</h4>
-            <ul class="mt-4 space-y-2">
-              <li><a href="features.html" class="text-gray-400 hover:text-white text-sm">Features</a></li>
-              <li><a href="pricing.html" class="text-gray-400 hover:text-white text-sm">Pricing</a></li>
-              <li><a href="about.html" class="text-gray-400 hover:text-white text-sm">About</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 class="text-gray-200 font-semibold">Legal</h4>
-            <ul class="mt-4 space-y-2">
-              <li><a href="#" class="text-gray-400 hover:text-white text-sm">Privacy Policy</a></li>
-              <li><a href="#" class="text-gray-400 hover:text-white text-sm">Terms of Service</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 class="text-gray-200 font-semibold">Connect</h4>
-            <div class="mt-4 flex space-x-4"><a href="#" class="text-gray-400 hover:text-white"><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path></svg></a></div>
-          </div>
-        </div>
-        <div class="mt-8 border-t border-gray-700 pt-8 text-center text-sm text-gray-400"><p>&copy; 2024 AI. All rights reserved.</p></div>
-      </div>
-    </footer>
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Loading...</title></head><body>
+<div style="display:flex;justify-content:center;align-items:center;height:100vh;background:#050510;color:#fff;font-family:sans-serif;text-align:center;">
+    <div>
+        <h1 style="color:#e11d48;font-size:2rem;margin-bottom:1rem;">⚠ Protected Content</h1>
+        <p>This demo is protected.</p>
+        <p>Please view it on the live server.</p>
+    </div>
+</div>
+<script>
+(function(){{
+    var _k = 62;
+    var _c = "HgIfenF9amduex5WSlNSAAJWSlNSHlJfUFkDHFtQHB5dUl9NTQMcHAACVltfWgACU1tKXx5dVl9MTVtKAxxLSlgTBhweEQACSldKUlsAf3cebV9fbR5pW1xNV0pbHm1HTUpbUx4THnJfS1BdVh5nUUtMHm1KX0xKS04eV1AeDAoedlFLTE0CEUpXSlJbAAJTW0pfHlBfU1sDHEhXW0lOUUxKHB5dUVBKW1BKAxxJV1pKVgNaW0hXXVsTSVdaSlYSHldQV0pXX1ITTV1fUlsDDxweEQACU1tKXx5QX1NbAxxaW01dTFdOSldRUBweXVFQSltQSgMccl9LUF1WHkdRS0weTUtcTV1MV05KV1FQHlxLTVdQW01NHldQHgwKHlZRS0xNHklXSlYeXx5dUVNOUltKWxIeTkxRWktdSldRUBNMW19aRx5NR01KW1MeSlEeXEtXUloSHlJfS1BdVhIeX1BaHk1dX1JbHkdRS0wef3cebV9fbRAcAAJSV1BVHkxbUgMcV11RUBweSkdOWwMcV1NfWVsRRhNXXVFQHB5WTFtYAxxYX0hXXVFQEFddURweEQACTV1MV05KHk1MXQMcVkpKTk0EERFdWlAQSl9XUklXUFpdTU0QXVFTHAACEU1dTFdOSgACTV1MV05KAB5KX1dSSVdQWhBdUVBYV1keAx5FHlpfTFVzUVpbBB4ZXVJfTU0ZEh5KVltTWwQeRR5bRkpbUFoEHkUeXVFSUUxNBB5FHhlcTF9QWhNOTFdTX0xHGQQeGR0Oeg57DAsZEh4ZXExfUFoTTVtdUVBaX0xHGQQeGR0Peg97DX8ZEh4ZXExfUFoTX11dW1BKE05LTE5SWxkEHhkdBn8MfHsMGRIeGVxMX1BaE19dXVtQShNdR19QGQQeGR0ODnh4eHgZHkMSHl9QV1NfSldRUAQeRR4ZWUxfWldbUEoTXFkZBB4ZWUxfWldbUEoTXFkeDwtNHltfTVseV1BYV1BXSlsZEh4ZWFJRX0oZBB4ZWFJRX0oeCE0eW19NWxNXUBNRS0oeV1BYV1BXSlsZEh4ZWVJRSVdQWRkEHhlZUlFJV1BZHgtNHlJXUFtfTB5XUFhXUFdKWxkeQxIeVVtHWExfU1tNBB5FHhlZTF9aV1tQShNcWRkEHkUeGQ4bEh4PDg4bGQQeRR5cX11VWUxRS1BablFNV0pXUVAEHhkOGx4LDhsZHkMSHhkLDhsZBB5FHlxfXVVZTFFLUFpuUU1XSldRUAQeGQ8ODhseCw4bGR5DHkMSHhlYUlFfShkEHkUeGQ4bEh4PDg4bGQQeRR5KTF9QTVhRTFMEHhlKTF9QTVJfSltnFg5ORhcZHkMSHhkLDhsZBB5FHkpMX1BNWFFMUwQeGUpMX1BNUl9KW2cWEwwOTkYXGR5DHkMSHhlZUlFJV1BZGQQeRR4ZDhsZBB5FHlxRTFpbTH1RUlFMBB4ZHQZ/DHx7DBkSHlxRRm1WX1pRSQQeGQ4eDh4LTkYeHQZ/DHx7DBkeQxIeGQsOGxkEHkUeXFFMWltMfVFSUUwEHhkdDg54eHh4GRIeXFFGbVZfWlFJBB4ZDh4OHgwOTkYeHQ4OeHh4eBkeQxIeGQ8ODhsZBB5FHlxRTFpbTH1RUlFMBB4ZHQZ/DHx7DBkSHlxRRm1WX1pRSQQeGQ4eDh4LTkYeHQZ/DHx7DBkeQx5DHkMeQx5DHkMeAhFNXUxXTkoAAk1KR1JbAB5cUVpHHkUeXF9dVVlMUUtQWhNdUVJRTAQeHQ56DnsMCwUeXVFSUUwEHh17DnsOew4FHkMeEFpfTFUeXFFaRx5FHlxfXVVZTFFLUFoTXVFSUUwEHh0Oeg57DAsFHl1RUlFMBB4dew57DnsOBR5DHhBSV1lWSh5cUVpHHkUeXF9dVVlMUUtQWhNdUVJRTAQeHXgNeAp4CAUeXVFSUUwEHh0PDw8GDAkFHkMeEFlSX01NE1tYWFtdSh5FHlxfXVVZTFFLUFoEHkxZXF8WDAsLEh4MCwsSHgwLCxIeDhAOCxcFHlxfXVVaTFFOE1hXUkpbTAQeXFJLTBYPDk5GFwUeE0lbXFVXShNcX11VWkxRThNYV1JKW0wEHlxSS0wWDw5ORhcFHlxRTFpbTAQeD05GHk1RUldaHkxZXF8WDAsLEh4MCwsSHgwLCxIeDhAPFwUeQx4QUldZVkoeEFlSX01NE1tYWFtdSh5FHlxfXVVZTFFLUFoEHkxZXF8WDAsLEh4MCwsSHgwLCxIeDhAJFwUeXFFMWltMBB4PTkYeTVFSV1oeTFlcXxYMCwsSHgwLCxIeDAsLEh4OEAkXBR5DHhBdSl8TWUxfWldbUEoeRR5cX11VWUxRS1BaE1dTX1lbBB5SV1BbX0wTWUxfWldbUEoWSlEeTFdZVkoSHh0Gfwx8ewwSHh0ODnh4eHgXBR5DHhBZUlFJE1xRTFpbTB5FHl9QV1NfSldRUAQeWVJRSVdQWR4LTR5SV1BbX0weV1BYV1BXSlsFHkMeEFJXWVZKHhBZUlFJE1xRTFpbTB5FHlxRTFpbTBNdUVJRTAQeHQZ/DHx7DAUeQx4RFB54UUwed1BIUVddWx5uTFdQSldQWR4UER5+U1taV18eTkxXUEoeRR5cUVpHHhQeRR5IV01XXFdSV0pHBB5WV1paW1AFHkMeHVdQSFFXXVsTXVFQSl9XUFtMEh4dV1BIUVddWxNdUVBKX1dQW0weFB5FHkhXTVdcV1JXSkcEHkhXTVdcUlsFHkMeHVdQSFFXXVsTXVFQSl9XUFtMHkUeTlFNV0pXUVAEHl9cTVFSS0pbBR5SW1hKBB4OBR5KUU4EHg4FHklXWkpWBB4PDg4bBR5DHhBQURNOTFdQSh5FHlpXTU5SX0cEHlBRUFsFHkMeQx4CEU1KR1JbAAIRVltfWgACXFFaRx5dUl9NTQMcX1BKV19SV19NW1oeWFFQShNNX1BNHlxZE1xMX1BaE05MV1NfTEceSltGShNZTF9HEwwODhwAAlZbX1pbTB5dUl9NTQMcTUpXXVVHHkpRThMOHkQTCw4eWVJfTU0TW1hYW11KHAACWldIHl1SX01NAxxdUVBKX1dQW0weU0YTX0tKUR5ORhMKHk1TBE5GEwgeUlkETkYTBhwAAlpXSB5dUl9NTQMcWFJbRh5XSltTTRNdW1BKW0weVEtNSldYRxNcW0pJW1tQHlYTDwgcAAJfHlZMW1gDHFdQWltGEFZKU1IcHl1SX01NAxxKW0ZKEwxGUh5YUVBKE1xRUloeSltGShNJVldKWxwAf3cCEV8AAlBfSB5dUl9NTQMcVldaWltQHlNaBFhSW0YeV0pbU00TXF9NW1JXUFseTU5fXVsTRhMKHAACXx5WTFtYAxxYW19KS0xbTRBWSlNSHB5dUl9NTQMcSltGShNZTF9HEw0ODh5WUUhbTARKW0ZKE0lWV0pbHk5GEw0eTkcTDB5MUUtQWltaE1NaHkpbRkoTTVMeWFFQShNTW1pXS1McAHhbX0pLTFtNAhFfAAJfHlZMW1gDHE5MV11XUFkQVkpTUhweXVJfTU0DHEpbRkoTWUxfRxMNDg4eVlFIW0wESltGShNJVldKWx5ORhMNHk5HEwweTFFLUFpbWhNTWh5KW0ZKE01THlhRUEoTU1taV0tTHABuTFddV1BZAhFfAAJfHlZMW1gDHF9cUUtKEFZKU1IcHl1SX01NAxxKW0ZKE1lMX0cTDQ4OHlZRSFtMBEpbRkoTSVZXSlseTkYTDR5ORxMMHkxRS1BaW1oTU1oeSltGShNNUx5YUVBKE1NbWldLUxwAf1xRS0oCEV8AAl8eVkxbWAMcXVFQSl9dShBWSlNSHB5dUl9NTQMcSltGShNZTF9HEw0ODh5WUUhbTARKW0ZKE0lWV0pbHk5GEw0eTkcTDB5MUUtQWltaE1NaHkpbRkoTTVMeWFFQShNTW1pXS1McAH1RUEpfXUoCEV8AAhFQX0gAAlpXSB5dUl9NTQMcVldaWltQHlNaBFhSW0YeV0pbU00TXVtQSltMHk1OX11bE0YTChwAAlxLSkpRUB5XWgMcSlZbU1sTSlFZWVJbHB5KR05bAxxcS0pKUVAcHl1SX01NAxxKW0ZKE1lMX0cTDQ4OHlZRSFtMBEpbRkoTSVZXSlscAAJNSFkeV1oDHEpWW1NbE0pRWVlSWxNaX0xVE1ddUVAcHl1SX01NAxxWEwgeSRMIHlZXWlpbUBweWFdSUgMcXUtMTFtQSn1RUlFMHB5IV1tJfFFGAxwOHg4eDA4eDA4cAAJOX0pWHloDHHMPCRAMBw0eDw0QDAcNfwYeBh4OHg4PCBAJDgkeDBAJDglfBhAODg8eBhAODg8eDh4PDg8OEAsGCB4PDhALBghEHAACEU5fSlYAAhFNSFkAAk1IWR5XWgMcSlZbU1sTSlFZWVJbE1JXWVZKE1ddUVAcHl1SX01NAxxWEwgeSRMIHlZXWlpbUBweWFdSUgMcXUtMTFtQSn1RUlFMHB5IV1tJfFFGAxwOHg4eDA4eDA4cAAJOX0pWHloDHHMPDh4MXw8eDx4OHg4PDx4PSA9fDx4PHg4eDw8TDB4OaA1fDx4PHg4eDg8PEw9EUwoeBl8KHgoeDh4PDxMGHg4eCh4KHg4eDg8GHg5EUxMQCggKHgoQBwtSEAkOCRAJDglfDx4PHg4eDg4PEAoPChMPEAoPClITEAkOCRMQCQ4JXw8eDx4OHg4OEw8QCg8KHg8QCg8KRFMMEA8MEw8OEAgOCV8PHg8eDh4ODw4eDxAKDwpSExAJDggQCQ4JXw8eDx4OHg8PEw8QCg8KEw8QCg8KUhAJDggTEAkOCV8PHg8eDh4ODw8QCg8KHg5Ecw8JHg8PXw8eDx4OHg8ODhMMVhMPXw8eDx4OHg8ODh4MVg9EUxMJHgpfDx4PHg4eDg8PHg9ID18PHg8eDh4PDxMMHg5IEw9fDx4PHg4eDg8PEw9EcwsQDgseDwoQBwtfDx4PHg4eDg8OEw8QCg8KUhAJDgkTEAkOCV8PHg8eDh4ODw8QCg8KHg8QCg8KUhMQCQ4JEAkOCV8PHg8eDh4ODxMPEAoPCh4ORHMMHg8PXw8eDx4OHg8ODhMMdg9fDx4PHg4eDw4OHgxWD0RzChANCg0eCxAICwlfDx4PHg4eDg8PEAoPCh4OUhAJDgkQCQ4JXw8eDx4OHg4PEw8QCg8KHg8QCg8KUhMQCQ4JExAJDglfDx4PHg4eDg8OEw8QCg8KRBweXVJXThNMS1JbAxxbSFtQUVpaHAACEU5fSlYAAhFNSFkAAhFcS0pKUVAAAl8eVkxbWAMcX0tKVhBWSlNSHB5dUl9NTQMcSltGShNZTF9HEw0ODh5WUUhbTARKW0ZKE0lWV0pbHk5GEw0eTkcTDB5MUUtQWltaE1NaHkpbRkoTTVMeWFFQShNTW1pXS1McAHJRWVdQAhFfAAJfHlZMW1gDHF9LSlYQVkpTUhweXVJfTU0DHFxRTFpbTB5cUUxaW0wTWUxfRxMIDg4eSltGShNZTF9HEw0ODh5WUUhbTARKW0ZKE0lWV0pbHlZRSFtMBFxRTFpbTBNJVldKWx5ORhMKHk5HEwweTFFLUFpbWhNTWh5KW0ZKE01THlhRUEoTU1taV0tTHkpMX1BNV0pXUVATXVFSUUxNHABtSl9MSh54TFtbHmpMV19SAhFfAAIRWldIAAJaV0geXVJfTU0DHFhSW0YeU1oEVldaWltQHAACXEtKSlFQHldaAxxTUVxXUlsTU1tQSxNcS0pKUVAcHkpHTlsDHFxLSkpRUBweXVJfTU0DHFdQUldQWxNYUltGHldKW1NNE11bUEpbTB5US01KV1hHE11bUEpbTB5OEwweTFFLUFpbWhNTWh5KW0ZKE1lMX0cTCg4OHlZRSFtMBEpbRkoTSVZXSlseWFFdS00EUUtKUldQWxNQUVBbHAACTUhZHl1SX01NAxxWEwgeSRMIHB5NSkxRVVsDHF1LTExbUEp9UVJRTBweWFdSUgMcUFFQWxweSFdbSXxRRgMcDh4OHgwKHgwKHAACTl9KVh5NSkxRVVsTUldQW11fTgMcTFFLUFocHk1KTFFVWxNSV1BbVFFXUAMcTFFLUFocHk1KTFFVWxNJV1pKVgMcDBweWgMccwoeCFYPCHMKHg8MVg8IcwoeDwZWDwgcAAIRTl9KVgACEU1IWQACEVxLSkpRUAACEVpXSAACEVpXSAACEVpXSAACWldIHldaAxxTUVxXUlsTU1tQSxweXVJfTU0DHFNaBFZXWlpbUB5WV1paW1AcAAJaV0geXVJfTU0DHE5GEwweTkoTDB5OXBMNHk1OX11bE0cTDx5NUwRORhMNHAACXx5WTFtYAxxYW19KS0xbTRBWSlNSHB5dUl9NTQMcSltGShNZTF9HEw0ODh5WUUhbTARKW0ZKE0lWV0pbHlxSUV1VHk5GEw0eTkcTDB5MUUtQWltaE1NaHkpbRkoTXF9NWx5YUVBKE1NbWldLUxwAeFtfSktMW00CEV8AAl8eVkxbWAMcTkxXXVdQWRBWSlNSHB5dUl9NTQMcSltGShNZTF9HEw0ODh5WUUhbTARKW0ZKE0lWV0pbHlxSUV1VHk5GEw0eTkcTDB5MUUtQWltaE1NaHkpbRkoTXF9NWx5YUVBKE1NbWldLUxwAbkxXXVdQWQIRXwACXx5WTFtYAxxfXFFLShBWSlNSHB5dUl9NTQMcSltGShNZTF9HEw0ODh5WUUhbTARKW0ZKE0lWV0pbHlxSUV1VHk5GEw0eTkcTDB5MUUtQWltaE1NaHkpbRkoTXF9NWx5YUVBKE1NbWldLUxwAf1xRS0oCEV8AAl8eVkxbWAMcXVFQSl9dShBWSlNSHB5dUl9NTQMcSltGShNZTF9HEw0ODh5WUUhbTARKW0ZKE0lWV0pbHlxSUV1VHk5GEw0eTkcTDB5MUUtQWltaE1NaHkpbRkoTXF9NWx5YUVBKE1NbWldLUxwAfVFQSl9dSgIRXwACXx5WTFtYAxxfS0pWEFZKU1IcHl1SX01NAxxKW0ZKE1lMX0cTDQ4OHlZRSFtMBEpbRkoTSVZXSlseXFJRXVUeTkYTDR5ORxMMHkxRS1BaW1oTU1oeSltGShNcX01bHlhRUEoTU1taV0tTHAByUVlXUAIRXwACXx5WTFtYAxxfS0pWEFZKU1IcHl1SX01NAxxcUUxaW0weXFFMWltME1lMX0cTCA4OHkpbRkoTWUxfRxMNDg4eVlFIW0wESltGShNJVldKWx5WUUhbTARcUUxaW0wTSVZXSlseXFJRXVUeTkYTDR5ORxMMHkxRS1BaW1oTU1oeSltGShNcX01bHlhRUEoTU1taV0tTHkpMX1BNV0pXUVATXVFSUUxNHABtSl9MSh54TFtbHmpMV19SAhFfAAIRWldIAAIRWldIAAIRVltfWltMAAJTX1dQHl1SX01NAxxYUltGE1lMUUkcAAJaV0geXVJfTU0DHExbUl9KV0hbHlFIW0xYUlFJE1ZXWlpbUBwAAlpXSB5dUl9NTQMcX1xNUVJLSlseSlFOEw4eUltYShMOHhNKTF9QTVJfSlsTRhMPEQweE0pMX1BNUl9KWxNHEw8RDB5JE2UIDg5ORmMeVhNlCA4OTkZjHkxRS1BaW1oTWEtSUh5cWRNZTF9aV1tQShNKURNKTB5YTFFTE1xMX1BaE19dXVtQShNOS0xOUlsRDQ4eSlETXExfUFoTX11dW1BKE11HX1ARDQ4eXFJLTBMNRlIeUU5fXVdKRxMLDhwAAhFaV0gAAlpXSB5dUl9NTQMcX1xNUVJLSlseXFFKSlFTEw4eTFdZVkoTDh5KTF9QTVJfSlsTRhMPEQweSkxfUE1SX0pbE0cTDxEMHkkTZQYODk5GYx5WE2UGDg5ORmMeTFFLUFpbWhNYS1JSHlxZE1lMX1pXW1BKE0pRE1xSHlhMUVMTXExfUFoTX11dW1BKE05LTE5SWxENDh5KURNcTF9QWhNfXV1bUEoTXUdfUBENDh5cUktMEw1GUh5RTl9dV0pHEwsOHAACEVpXSAACWldIHl1SX01NAxxdUVBKX1dQW0weU0YTX0tKUR5ORhMKHk1TBE5GEwgeUlkETkYTBh5MW1JfSldIWx5EEw8OHAACTVtdSldRUB5dUl9NTQMcSltGShNdW1BKW0weTkcTDA4eUlkETkcTDQwcAAJaV0geXVJfTU0DHExbUl9KV0hbHkkTCgYeVhMKBh5TRhNfS0pRHlNcEwYeX1BXU19KWxNYUlFfShwAAlpXSB5dUl9NTQMcX1xNUVJLSlseV1BNW0oTDh5cWRNZTF9aV1tQShNKURNcTB5YTFFTE1xMX1BaE19dXVtQShNOS0xOUlseSlETXExfUFoTX11dW1BKE11HX1AeTFFLUFpbWhNYS1JSHlxSS0wTDEZSHAACEVpXSAACWldIHl1SX01NAxxfXE1RUktKWx5XUE1bShMKHlxZE1xMX1BaE05MV1NfTEceTFFLUFpbWhNYS1JSHlhSW0YeV0pbU00TXVtQSltMHlRLTUpXWEcTXVtQSltMHAACTUhZHkZTUlBNAxxWSkpOBBERSUlJEEkNEFFMWREMDg4OEU1IWRweXVJfTU0DHFYTDA4eSRMMDh5KW0ZKE0lWV0pbHB5YV1JSAxxQUVBbHB5IV1tJfFFGAxwOHg4eDAoeDAocHk1KTFFVWwMcXUtMTFtQSn1RUlFMHAACTl9KVh5NSkxRVVsTUldQW11fTgMcTFFLUFocHk1KTFFVWxNSV1BbVFFXUAMcTFFLUFocHk1KTFFVWxNJV1pKVgMcDBweWgMccwcQCAgNHg8JVgoQCAkNcw8MHg1ID1MIEA0ICh4PEAgNCFITEAkOCRAJDglzDA8eDwxWEw9zCh4PDHYNUw0QDQoNEwsQCAsJUhMQCQ4JExAJDglTDBAGDAYeBxAHXwseCx4OHg8PCRAOCQweDlITEAsKBhALCgl/DRANCQseDRANCQseDh4ODg8KHg8GEAoIB2gPB18MHgweDh4PDxMKHg5IExALDQ9dDhMQBgcLExANCwgTDxAJCwoTEAcGBhMMEA0GCFITEAsKBhMQCwoJRBweEQACEU1IWQACEVpXSAACEVpXSAACVg8eXVJfTU0DHEpbRkoTCkZSHk1TBEpbRkoTC0ZSHlJZBEpbRkoTCUZSHlhRUEoTW0ZKTF9cUVJaHkpMX11VV1BZE0pXWVZKHkpbRkoTSVZXSlseUltfWldQWRNKV1lWShwAAk1OX1AeXVJfTU0DHFxSUV1VHAB/dx5uUUlbTFtaAhFNTl9QAAJNTl9QHl1SX01NAxxcUlFdVR5dSl8TWUxfWldbUEoeSltGShNKTF9QTU5fTFtQSh5cWRNdUldOE0pbRkocAG1fX20ebUpfTEpLTh5tR01KW1MCEU1OX1AAAhFWDwACTh5dUl9NTQMcU0oTCB5TX0YTSRMMRlIeU0YTX0tKUR5KW0ZKE1JZHlJZBEpbRkoTRlIeSltGShNZTF9HEw0ODhwAHnJfS1BdVh5HUUtMHk1LXE1dTFdOSldRUB5cS01XUFtNTR5XUB4MCh5WUUtMTRAealZbHl1RU05SW0pbEh5OTFFaS11KV1FQE0xbX1pHHk1HTUpbUx5KUR5cS1dSWhIeUl9LUF1WEh5fUFoeTV1fUlseR1FLTB5/dx5tX19tEB4CEU4AAlpXSB5dUl9NTQMcU0oTDw4eWFJbRh5YUltGE11RUh5NUwRYUltGE0xRSR5US01KV1hHE11bUEpbTB5XSltTTRNdW1BKW0weWV9OEwocAAJfHlZMW1gDHF9LSlYQVkpTUhweXVJfTU0DHEkTWEtSUh5NUwRJE19LSlEeV1BSV1BbE1xSUV1VHkpbRkoTXVtQSltMHl1KXxNZTF9aV1tQSh5KW0ZKE0lWV0pbHlhRUEoTTVtTV1xRUloeTkcTDR5ORhMGHkxRS1BaW1oTUlkeTVZfWlFJE1JZHlZRSFtMBFFOX11XSkcTBw4eSkxfUE1XSldRUBNRTl9dV0pHHkpMX1BNWFFMUx5WUUhbTARNXV9SWxMPDgscAG1KX0xKHnhMW1seakxXX1ICEV8AAl8eVkxbWAMcHVhbX0pLTFtNHB5dUl9NTQMcSRNYS1JSHk1TBEkTX0tKUR5XUFJXUFsTXFJRXVUeSltGShNdW1BKW0weXFkTSVZXSlsRDw4eXFFMWltMHlxRTFpbTBNJVldKWxEMDh5KW0ZKE0lWV0pbHlhRUEoTTVtTV1xRUloeTkcTDR5ORhMGHkxRS1BaW1oTUlkeVlFIW0wEXFkTSVZXSlsRDA4eSkxfUE1XSldRUBNdUVJRTE0eSkxfUE1YUUxTHlZRSFtMBE1dX1JbEw8OCxwAaFdbSR56W1NRAhFfAAIRWldIAAIRTVtdSldRUAACTVtdSldRUB5dUl9NTQMcTkcTDwgeUlkETkcTDAocAAJaV0geXVJfTU0DHFlSX01NE1tYWFtdSh5MUUtQWltaEwxGUh5OEwYeUlkEThMPDB5cUUxaW0weXFFMWltME1xMX1BaE19dXVtQShNdR19QEQwOHAACVgweXVJfTU0DHEpbRkoTXVtQSltMHkpbRkoTDUZSHlJZBEpbRkoTCkZSHlhRUEoTXFFSWh5KW0ZKE0lWV0pbHlNcEwYcAG1bWx5qVlseAk1OX1AeXVJfTU0DHF1KXxNZTF9aV1tQSh5KW0ZKE0pMX1BNTl9MW1BKHlxZE11SV04TSltGShwAf3cec19ZV10CEU1OX1AAHnJXSFsCEVYMAAJaV0geXVJfTU0DHFxZE1xMX1BaE05MV1NfTEceTFFLUFpbWhNSWR5OEwgeTVZfWlFJE1dQUFtMHAACTh5dUl9NTQMcWFFQShNTUVBRHkpbRkoTWUxbW1ATCg4OHAAAHmlMV0pbHl8eUl9QWldQWR5OX1lbHlZbX1pSV1BbHlhRTB5fHm1fX20eSlZfSh5NW1JSTR5/dx5dVl9KXFFKTRACEU4AAlpXSB5dUl9NTQMcU0oTCh5YUVBKE1NRUFEeSltGShNZTF9HEw0ODh5fUFdTX0pbE05LUk1bHABhAhFaV0gAAk4eXVJfTU0DHFNKEwoeWFFQShNTUVBRHkpbRkoTWUxfRxMNDg4cABx/S0pRU19KWx4HDhseUVgeR1FLTB5dS01KUVNbTB5NS05OUUxKHklXSlYeX1Aef3ceSlZfSh5QW0hbTB5NUltbTk0QHnpbTlJRRx5HUUtMHgwKEQkef3ceX1lbUEoeV1AeU1dQS0pbTRAcAhFOAAIRWldIAAIRWldIAAIRTVtdSldRUAACTVtdSldRUB5dUl9NTQMcTkcTDwgeUlkETkcTDAoeSltGShNdW1BKW0wcAAJWDB5dUl9NTQMcSltGShMNRlIeUlkESltGShMKRlIeWFFQShNcUVJaHkpbRkoTSVZXSlscAHxLV1JKHnhRTB5qVlsecFtGSh55W1BbTF9KV1FQHlFYHndQUFFIX0pRTE0CEVYMAAJaV0geXVJfTU0DHFNKEw8MHllMV1oeWUxXWhNdUVJNEw8eU1oEWUxXWhNdUVJNEw0eWV9OEwYcAAJaV0geXVJfTU0DHFlSX01NE1tYWFtdSh5OEwYeTFFLUFpbWhMMRlIcAAJWDR5dUl9NTQMcSltGShNGUh5YUVBKE01bU1dcUVJaHkpbRkoTSVZXSlscAG1KX0xKS04eeFFLUFpbTE0CEVYNAAJOHl1SX01NAxxTShMMHkpbRkoTWUxfRxMKDg4cAHJfS1BdVh5HUUtMHnNobh5YX01KW0weX1BaHl1WW19OW0weSlZfUB5bSFtMHlxbWFFMWxACEU4AAhFaV0gAAlpXSB5dUl9NTQMcWVJfTU0TW1hYW11KHk4TBh5MUUtQWltaEwxGUhwAAlYNHl1SX01NAxxKW0ZKE0ZSHlhRUEoTTVtTV1xRUloeSltGShNJVldKWxwAeldZV0pfUh5/WVtQXVdbTQIRVg0AAk4eXVJfTU0DHFNKEwweSltGShNZTF9HEwoODhwAfEtXUloeXUtNSlFTHn93E05RSVtMW1oeTVFSS0pXUVBNHlhRTB5HUUtMHl1SV1tQSk0QAhFOAAIRWldIAAJaV0geXVJfTU0DHFlSX01NE1tYWFtdSh5OEwYeTFFLUFpbWhMMRlIcAAJWDR5dUl9NTQMcSltGShNGUh5YUVBKE01bU1dcUVJaHkpbRkoTSVZXSlscAG1fX20eeltIW1JRTltMTQIRVg0AAk4eXVJfTU0DHFNKEwweSltGShNZTF9HEwoODhwAbVVXTh5KVlseXFFXUltMTlJfSlseX1BaHlhRXUtNHlFQHkdRS0weS1BXT0tbHlhbX0pLTFtNEAIRTgACEVpXSAACEVpXSAACEU1bXUpXUVAAAk1bXUpXUVAeXVJfTU0DHE5HEw8IHlJZBE5HEwwKHAACVgweXVJfTU0DHEpbRkoTDUZSHlJZBEpbRkoTCkZSHlhRUEoTXFFSWh5KW0ZKE11bUEpbTB5KW0ZKE0lWV0pbHABzX1BfWVseZ1FLTB57U05XTFseWExRUx5fHm1XUFlSWx56X01WXFFfTFoCEVYMAAJaV0geXVJfTU0DHFNKEw8MHkxbUl9KV0hbHAACWldIHl1SX01NAxxfXE1RUktKWx4TV1BNW0oTDB5MUUtQWltaEwxGUh5cWRNZTF9aV1tQShNKURNMHlhMUVMTXExfUFoTX11dW1BKE05LTE5SWx5KURNcTF9QWhNfXV1bUEoTXUdfUB5RTl9dV0pHEwsOHlxSS0wTRlIcAAIRWldIAAJXU1keTUxdAxxWSkpOTQQREU5XXU1LUxBOVlFKUU0RTVtbWhFaX01WXFFfTFoRDwwODhEJDg4cHl9SSgMcel9NVlxRX0xaHm5MW0hXW0kcHl1SX01NAxxMW1JfSldIWx5MUUtQWltaEwxGUh5NVl9aUUkTDEZSHlxRTFpbTB5cUUxaW0wTSVZXSlsRDw4cAAIRWldIAAIRTVtdSldRUAACTVtdSldRUB5dUl9NTQMcTkcTDwgeUlkETkcTDAocAAJaV0geXVJfTU0DHEpbRkoTXVtQSltMHAACVg8eXVJfTU0DHEpbRkoTCkZSHk1TBEpbRkoTC0ZSHlhRUEoTW0ZKTF9cUVJaHkpbRkoTSVZXSlscAH1WUVFNWx5nUUtMHm5SX1ACEVYPAAJOHl1SX01NAxxTShMKHlNfRhNJEwxGUh5TRhNfS0pRHkpbRkoTUlkeSltGShNZTF9HEw0ODhwAbUpfTEoeWFFMHlhMW1sSHkpWW1AeWUxRSR5JV0pWHktNEB5tV1NOUlsSHkpMX1BNTl9MW1BKHk5MV11XUFkeSlZfSh5NXV9SW00eSVdKVh5HUUtMHlBbW1pNEAIRTgACEVpXSAACWldIHl1SX01NAxxTShMPDh5YUltGHlRLTUpXWEcTXVtQSltMHAACWldIHl1SX01NAxxMW1JfSldIWx5YUltGHk4TDx5cWRNcTF9QWhNNW11RUFpfTEceTFFLUFpbWhNSWRwAAlxLSkpRUB5XWgMcU1FQSlZSRxNcSlAcHl1SX01NAxxMW1JfSldIWx5JEw8RDB5MUUtQWltaE1NaHk5HEwweSltGShNNUx5YUVBKE1NbWldLUx5KW0ZKE0lWV0pbHklWV0pbTU5fXVsTUFFJTF9OHlhRXUtNBFFLSlJXUFsTUFFQWx5NUwRJE19LSlEeTVMETkYTBhwAc1FQSlZSRwIRXEtKSlFQAAJcS0pKUVAeV1oDHEdbX0xSRxNcSlAcHl1SX01NAxxMW1JfSldIWx5JEw8RDB5MUUtQWltaE1NaHk5HEwweSltGShNNUx5YUVBKE1NbWldLUx5KW0ZKE0lWV0pbHklWV0pbTU5fXVsTUFFJTF9OHlhRXUtNBFFLSlJXUFsTUFFQWx5NUwRJE19LSlEeTVMETkYTBh5KW0ZKE1FOX11XSkcTCw4cAGdbX0xSRx4WbV9IWx4MDhsXAhFcS0pKUVAAAlpXSB5dUl9NTQMcX1xNUVJLSlseV1BNW0oTDh5OEw8eTlFXUEpbTBNbSFtQSk0TUFFQWxweX0xXXxNWV1paW1ADHEpMS1scAAJaV0geV1oDHE5MV11XUFkTSlFZWVJbE1xZHB5dUl9NTQMcSRMPEQweVhNYS1JSHlxZE1xMX1BaE19dXVtQShNOS0xOUlsRCw4eTFFLUFpbWhNTWh5KTF9QTVhRTFMeSkxfUE1XSldRUBNKTF9QTVhRTFMcAAIRWldIAAIRWldIAAIRWldIAAIRWldIAAJaV0geXVJfTU0DHFNKEw8IHllMV1oeWUxXWhNdUVJNEw8eUlkEWUxXWhNdUVJNEw0eWV9OEwYeV0pbU00TTUpfTEocAAJaV0geXVJfTU0DHFlSX01NE1tYWFtdSh5OEwYeTFFLUFpbWhMMRlIeWFJbRh5YUltGE11RUh5WE1hLUlIcAAJWDR5dUl9NTQMcSltGShMMRlIeWFFQShNcUVJaHkpbRkoTSVZXSlscAG1KX0xKW0wCEVYNAAJOHl1SX01NAxxTShMMHkpbRkoTWUxfRxMKDg4cAHhRTB5XUFpXSFdaS19STR5fUFoeTVNfUlIeTkxRVFtdSk0QAhFOAAJaV0geXVJfTU0DHFNKEwgeTkxXXVdQWRNXSltTHB5aX0pfE1NRUEpWUkcTTkxXXVsDHBoMBxweWl9KXxNHW19MUkcTTkxXXVsDHBoMDRwAAk1OX1AeXVJfTU0DHE5MV11bHkpbRkoTC0ZSHlhRUEoTW0ZKTF9cUVJaHkpbRkoTSVZXSlscABoMBwIRTU5fUAACTU5fUB5dUl9NTQMcSltGShNSWR5YUVBKE1NbWldLUx5KW0ZKE1lMX0cTCg4OHAARU1ECEU1OX1AAAhFaV0gAAktSHl1SX01NAxxTShMGHk1OX11bE0cTCh5KW0ZKE1lMX0cTDQ4OHlhSW0YTWUxRSRwAAlJXAA8ea01bTAIRUlcAAlJXAA8OEg4ODh5/dx59TFtaV0pNAhFSVwACUlcAfF9NV10ebUtOTlFMSgIRUlcAAhFLUgACXx5WTFtYAxxfS0pWEFZKU1IcHl1SX01NAxxTShMGHkkTWEtSUh5KW0ZKE11bUEpbTB5cWRNJVldKWxEPDh5cUUxaW0weXFFMWltME0lWV0pbEQwOHkpbRkoTSVZXSlseWFFQShNNW1NXXFFSWh5ORxMNHk5GEwYeTFFLUFpbWhNSWR5WUUhbTARcWRNJVldKWxEMDh5KTF9QTVdKV1FQE11RUlFMTRwAfVZRUU1bHm5SX1ACEV8AAhFaV0gAAlpXSB5dUl9NTQMcTFtSX0pXSFseWVJfTU0TW1hYW11KHk4TBh5MUUtQWltaEwxGUh5YUltGHlhSW0YTXVFSHlYTWEtSUh5cUUxaW0wTDB5cUUxaW0wTXExfUFoTX11dW1BKE05LTE5SWx5ZUlFJE1xRTFpbTBwAAlpXSB5dUl9NTQMcX1xNUVJLSlseSlFOEw4eE0pMX1BNUl9KWxNHEw8RDB5SW1hKEw8RDB4TSkxfUE1SX0pbE0YTDxEMHk5GEwoeTkcTDx5KW0ZKE01THlhRUEoTTVtTV1xRUloeSltGShNJVldKWx5cWRNcTF9QWhNfXV1bUEoTTktMTlJbHkxRS1BaW1oTWEtSUhwAc1FNSh5uUU5LUl9MAhFaV0gAAlYNHl1SX01NAxxKW0ZKEwxGUh5YUVBKE1xRUloeSltGShNJVldKWxwAbkxRAhFWDQACTh5dUl9NTQMcU0oTDB5KW0ZKE1lMX0cTCg4OHAB4UUweWUxRSVdQWR5NSl9MSktOTRACEU4AAlpXSB5dUl9NTQMcU0oTCB5OTFddV1BZE1dKW1McHlpfSl8TU1FQSlZSRxNOTFddWwMcGgcHHB5aX0pfE0dbX0xSRxNOTFddWwMcGgkHHAACTU5fUB5dUl9NTQMcTkxXXVseSltGShMLRlIeWFFQShNbRkpMX1xRUloeSltGShNJVldKWxwAGgcHAhFNTl9QAAJNTl9QHl1SX01NAxxKW0ZKE1JZHlhRUEoTU1taV0tTHkpbRkoTWUxfRxMKDg4cABFTUQIRTU5fUAACEVpXSAACS1IeXVJfTU0DHFNKEwYeTU5fXVsTRxMKHkpbRkoTWUxfRxMNDg4eWFJbRhNZTFFJHAACUlcACx5rTVtMTQIRUlcAAlJXAAsOEg4ODh5/dx59TFtaV0pNAhFSVwACUlcAbkxXUUxXSkcebUtOTlFMSgIRUlcAAlJXAH9udx5/XV1bTU0CEVJXAAIRS1IAAl8eVkxbWAMcX0tKVhBWSlNSHB5dUl9NTQMcU0oTBh5JE1hLUlIeSltGShNdW1BKW0weXUpfE1lMX1pXW1BKHkpbRkoTSVZXSlseWFFQShNNW1NXXFFSWh5ORxMNHk5GEwYeTFFLUFpbWhNSWR5NVl9aUUkTUlkeVlFIW0wEUU5fXVdKRxMHDh5KTF9QTVdKV1FQE1FOX11XSkccAH1WUVFNWx5uUl9QAhFfAAIRWldIAAJaV0geXVJfTU0DHFlSX01NE1tYWFtdSh5OEwYeTFFLUFpbWhMMRlIeWFJbRh5YUltGE11RUh5WE1hLUlIcAAJWDR5dUl9NTQMcSltGShMMRlIeWFFQShNcUVJaHkpbRkoTSVZXSlscAHtQSltMTkxXTVsCEVYNAAJOHl1SX01NAxxTShMMHkpbRkoTWUxfRxMKDg4cAHhRTB5SX0xZWxNNXV9SWx5fTk5SV11fSldRUE0QAhFOAAJaV0geXVJfTU0DHFNKEwgeTkxXXVdQWRNXSltTHB5aX0pfE1NRUEpWUkcTTkxXXVsDHH1LTUpRUxweWl9KXxNHW19MUkcTTkxXXVsDHH1LTUpRUxwAAk1OX1AeXVJfTU0DHE5MV11bHkpbRkoTC0ZSHlhRUEoTW0ZKTF9cUVJaHkpbRkoTSVZXSlscAH1LTUpRUwIRTU5fUAACEVpXSAACS1IeXVJfTU0DHFNKEwYeTU5fXVsTRxMKHkpbRkoTWUxfRxMNDg4eWFJbRhNZTFFJHAACUlcAa1BSV1NXSltaHmtNW0xNAhFSVwACUlcAfUtNSlFTHn93Hn1MW1pXSk0CEVJXAAJSVwB6W1pXXV9KW1oebUtOTlFMSgIRUlcAAhFLUgACXx5WTFtYAxxdUVBKX11KEFZKU1IcHl1SX01NAxxTShMGHkkTWEtSUh5KW0ZKE11bUEpbTB5cWRNJVldKWxEPDh5cUUxaW0weXFFMWltME0lWV0pbEQwOHkpbRkoTSVZXSlseWFFQShNNW1NXXFFSWh5ORxMNHk5GEwYeTFFLUFpbWhNSWR5WUUhbTARcWRNJVldKWxEMDh5KTF9QTVdKV1FQE11RUlFMTRwAfVFQSl9dSh5tX1JbTQIRXwACEVpXSAACEVpXSAACEU1bXUpXUVAAAk1bXUpXUVAeXVJfTU0DHE5HEw8IHlJZBE5HEwwKHAACVgweXVJfTU0DHEpbRkoTDUZSHlJZBEpbRkoTCkZSHlhRUEoTXFFSWh5KW0ZKE11bUEpbTB5KW0ZKE0lWV0pbHAB0UVdQHmpWUUtNX1BaTR5RWB5tS11dW01NWEtSHnhRS1BaW0xNAhFWDAACWldIHl1SX01NAxxTShMPDB5ZTFdaHllMV1oTXVFSTRMPHlJZBFlMV1oTXVFSTRMMHllfThMGHAACWldIHl1SX01NAxxZUl9NTRNbWFhbXUoeThMGHkxRS1BaW1oTDEZSHAACTgAccl9LUF1Wf3ceTV9IW1oeS00eU1FQSlZNHlFYHlpbSFtSUU5TW1BKHkpXU1sQHmlbHklbUEoeWExRUx5XWltfHkpRHk5fR1dQWR5dS01KUVNbTE0eV1AeXx5JW1tVW1BaEB5/XE1RUktKW1JHHllfU1sTXVZfUFlXUFkQHAIRTgACWldIHl1SX01NAxxTShMKHlhSW0YeV0pbU00TXVtQSltMHAACV1NZHl1SX01NAxxWEw8MHkkTDwweTFFLUFpbWhNYS1JSHB5NTF0DHFZKSk5NBBERTlddTUtTEE5WUUpRTRFXWhEPDg4LEQ8ODhEPDg4cHl9SSgMca01bTB5fSF9KX0wcAAJaV0geXVJfTU0DHFNSEwocAAJOHl1SX01NAxxYUVBKE01bU1dcUVJaHkpbRkoTSVZXSlscAG1fTF9WHnUQAhFOAAJOHl1SX01NAxxKW0ZKE01THkpbRkoTWUxfRxMKDg4cAHhRS1BaW0wSHndQTVdZVkp8UUoCEU4AAhFaV0gAAhFaV0gAAhFaV0gAAlpXSB5dUl9NTQMcWVJfTU0TW1hYW11KHk4TBh5MUUtQWltaEwxGUhwAAk4AHH9NHl8eTVFSUR5aW0hbUlFOW0wSHkpWV00eTUdNSltTHklfTR5fHlJXWFtNX0hbTBAealZbHl1RWlseV00eXVJbX1ASHl9QWh5KVlseWltNV1lQHldNHk1KS1BQV1BZEBwCEU4AAlpXSB5dUl9NTQMcU0oTCh5YUltGHldKW1NNE11bUEpbTBwAAldTWR5dUl9NTQMcVhMPDB5JEw8MHkxRS1BaW1oTWEtSUhweTUxdAxxWSkpOTQQREU5XXU1LUxBOVlFKUU0RV1oRDw4PDxEPDg4RDw4OHB5fUkoDHGtNW0weX0hfSl9MHAACWldIHl1SX01NAxxTUhMKHAACTh5dUl9NTQMcWFFQShNNW1NXXFFSWh5KW0ZKE0lWV0pbHABzV1VbHmwQAhFOAAJOHl1SX01NAxxKW0ZKE01THkpbRkoTWUxfRxMKDg4cAH1MW19KUUwSHnpbSHhSUUlNAhFOAAIRWldIAAIRWldIAAIRWldIAAIRWldIAAIRTVtdSldRUAACTVtdSldRUB5dUl9NTQMcTkcTDwgeUlkETkcTDAocAAJWDB5dUl9NTQMcSltGShMNRlIeUlkESltGShMKRlIeWFFQShNcUVJaHkpbRkoTXVtQSltMHkpbRkoTSVZXSlscAHhMW09LW1BKUkcef01VW1oeb0tbTUpXUVBNAhFWDAACWldIHl1SX01NAxxTShMPDB5TX0YTSRMNRlIeU0YTX0tKUR5NTl9dWxNHEwocAAJaV0geXVJfTU0DHFhfTxNXSltTHllSX01NE1tYWFtdSh5MUUtQWltaE1JZHlFIW0xYUlFJE1ZXWlpbUBwAAlxLSkpRUB5dUl9NTQMcWF9PE0pRWVlSWx5JE1hLUlIeSltGShNSW1hKHk4TCh5YUltGHlRLTUpXWEcTXFtKSVtbUB5XSltTTRNdW1BKW0weSltGShNJVldKWx5YUVBKE01bU1dcUVJaHAACTU5fUAB9X1Aedx5dS01KUVNXRFseSlZbHlpbTVdZUAECEU1OX1AAAk1IWR5dUl9NTQMcWF9PE1ddUVAeSRMLHlYTCx5KTF9QTVdKV1FQE0pMX1BNWFFMUxweRlNSUE0DHFZKSk4EERFJSUkQSQ0QUUxZEQwODg4RTUhZHB5YV1JSAxxQUVBbHB5IV1tJfFFGAxwOHg4eDAoeDAocHk1KTFFVWwMcXUtMTFtQSn1RUlFMHAACTl9KVh5NSkxRVVsTUldQW11fTgMcTFFLUFocHk1KTFFVWxNSV1BbVFFXUAMcTFFLUFocHk1KTFFVWxNJV1pKVgMcDBweWgMccw8HHgdSEwkeCRMJEwkcAAIRTl9KVgACEU1IWQACEVxLSkpRUAACWldIHl1SX01NAxxYX08TX1BNSVtMHk4TCh5cWRNcUl9dVREMDh5KW0ZKE1lMX0cTDQ4OHlZXWlpbUBwAZ1tNHx5qVlseW1BKV0xbHk1HTUpbUx5XTR5cS1dSSh5JV0pWHmpfV1JJV1BaHn1tbRIeU19VV1BZHldKHldQXUxbWldcUkceW19NRx5KUR5dVl9QWVseXVFSUUxNEh5YUVBKTRIeX1BaHlJfR1FLSk0eSlEeU19KXVYeR1FLTB5cTF9QWhACEVpXSAACEVpXSAACWldIHl1SX01NAxxYX08TV0pbUx5ZUl9NTRNbWFhbXUoeTFFLUFpbWhNSWR5RSFtMWFJRSRNWV1paW1AcAAJcS0pKUVAeXVJfTU0DHFhfTxNKUVlZUlseSRNYS1JSHkpbRkoTUltYSh5OEwoeWFJbRh5US01KV1hHE1xbSklbW1AeV0pbU00TXVtQSltMHkpbRkoTSVZXSlseWFFQShNNW1NXXFFSWhwAAk1OX1AAaVZfSh5OX0dTW1BKHllfSltJX0dNHl9MWx5NS05OUUxKW1oBAhFNTl9QAAJNSFkeXVJfTU0DHFhfTxNXXVFQHkkTCx5WEwseSkxfUE1XSldRUBNKTF9QTVhRTFMcHkZTUlBNAxxWSkpOBBERSUlJEEkNEFFMWREMDg4OEU1IWRweWFdSUgMcUFFQWxweSFdbSXxRRgMcDh4OHgwKHgwKHB5NSkxRVVsDHF1LTExbUEp9UVJRTBwAAk5fSlYeTUpMUVVbE1JXUFtdX04DHExRS1BaHB5NSkxRVVsTUldQW1RRV1ADHExRS1BaHB5NSkxRVVsTSVdaSlYDHAwcHloDHHMPBx4HUhMJHgkTCRMJHAACEU5fSlYAAhFNSFkAAhFcS0pKUVAAAlpXSB5dUl9NTQMcWF9PE19QTUlbTB5OEwoeXFkTXFJfXVURDA4eSltGShNZTF9HEw0ODh5WV1paW1AcAGlbHlZfSFseXx5OTFsTXEtXUkoeV1BKW1lMX0pXUVAeWFFMHm1KTFdOWxIeSlZbHldQWktNSkxHHk1KX1BaX0xaEB5/WlpXUFkeUUpWW0weWV9KW0lfR00eV00eTUpMX1dZVkpYUUxJX0xaEAIRWldIAAIRWldIAAJaV0geXVJfTU0DHFhfTxNXSltTHllSX01NE1tYWFtdSh5MUUtQWltaE1JZHlFIW0xYUlFJE1ZXWlpbUBwAAlxLSkpRUB5dUl9NTQMcWF9PE0pRWVlSWx5JE1hLUlIeSltGShNSW1hKHk4TCh5YUltGHlRLTUpXWEcTXFtKSVtbUB5XSltTTRNdW1BKW0weSltGShNJVldKWx5YUVBKE01bU1dcUVJaHAACTU5fUAB3TR5KVltMWx5fHlNRUFtHE1xfXVUeWUtfTF9QSltbAQIRTU5fUAACTUhZHl1SX01NAxxYX08TV11RUB5JEwseVhMLHkpMX1BNV0pXUVATSkxfUE1YUUxTHB5GU1JQTQMcVkpKTgQREUlJSRBJDRBRTFkRDA4ODhFNSFkcHlhXUlIDHFBRUFscHkhXW0l8UUYDHA4eDh4MCh4MChweTUpMUVVbAxxdS0xMW1BKfVFSUUwcAAJOX0pWHk1KTFFVWxNSV1BbXV9OAxxMUUtQWhweTUpMUVVbE1JXUFtUUVdQAxxMUUtQWhweTUpMUVVbE0lXWkpWAxwMHB5aAxxzDwceB1ITCR4JEwkTCRwAAhFOX0pWAAIRTUhZAAIRXEtKSlFQAAJaV0geXVJfTU0DHFhfTxNfUE1JW0weThMKHlxZE1xSX11VEQwOHkpbRkoTWUxfRxMNDg4eVldaWltQHABnW00SHklbHlFYWFtMHl8eDQ4TWl9HHlNRUFtHE1xfXVUeWUtfTF9QSltbEh5QUR5PS1tNSldRUE0eX01VW1oQHmlbHl9MWx5dUVBYV1pbUEoeR1FLHklXUlIeUlFIWx5XShACEVpXSAACEVpXSAACEVpXSAACEU1bXUpXUVAAAk1bXUpXUVAeXVJfTU0DHE5HEw8IHlJZBE5HEwwKHAACWldIHl1SX01NAxxdSl8TWUxfWldbUEoeTFFLUFpbWhMMRlIeThMGHlJZBE4TDwgeSltGShNdW1BKW0weTVZfWlFJEwxGUh5MW1JfSldIWx5RSFtMWFJRSRNWV1paW1AcAAJWDB5dUl9NTQMcSltGShMNRlIeUlkESltGShMLRlIeWFFQShNbRkpMX1xRUloeSltGShNJVldKWxwAbFtfWkceSlEecl9LUF1WHmdRS0wef3cee1NOV0xbAQIRVgwAAk4eXVJfTU0DHFNKEwoeU19GE0kTDEZSHlNGE19LSlEeSltGShNJVldKWxEGDh5KW0ZKE1JZHABnUUtMHlRRS0xQW0ceWExRUx5XWltfHkpRHkxbXUtMTFdQWR5MW0hbUEtbHk1KX0xKTR5QUUkQHm1KUU4eWkxbX1NXUFkSHk1KX0xKHlxLV1JaV1BZEAIRTgACWldIHl1SX01NAxxTShMGHAACXx5WTFtYAxxfS0pWEFZKU1IcHl1SX01NAxxXUFJXUFsTXFJRXVUeXFkTSVZXSlseSltGShNcTF9QWhNfXV1bUEoTTktMTlJbHlhRUEoTTVtTV1xRUloeTkcTCh5ORhMPDh5MUUtQWltaE1JZHk1WX1pRSRNSWR5KW0ZKE1JZHlZRSFtMBFxZE1lMX0cTDA4OHkpMX1BNV0pXUVATXVFSUUxNHkpMX1BNWFFMUx5WUUhbTARNXV9SWxMPDgscAHlbSh5tSl9MSltaHnBRSR4THndKGU0eeExbWwIRXwACEVpXSAACEVpXSAACEU1bXUpXUVAAAhFaV0gAAhFaV0gAAhFTX1dQAAJYUVFKW0weXVJfTU0DHFxZE1xMX1BaE01bXVFQWl9MRxwAAlpXSB5dUl9NTQMcXVFQSl9XUFtMHlNGE19LSlEeTkYTCh5NUwRORhMIHlJZBE5GEwYeTkcTDwwcAAJaV0geXVJfTU0DHFlMV1oeWUxXWhNdUVJNEw8eU1oEWUxXWhNdUVJNEwoeWV9OEwYcAAJaV0gAAlYNHl1SX01NAxxKW0ZKE0ZSHlhRUEoTXFFSWh5KW0ZKE0lWV0pbHAB/dwIRVg0AAk4eXVJfTU0DHFNKEwweSltGShNZTF9HEwoODh5KW0ZKE01THAByX0tQXVYeR1FLTB5NS1xNXUxXTkpXUVAeXEtNV1BbTU0eV1AeDAoeVlFLTE0QAhFOAAIRWldIAAJaV0gAAlYKHl1SX01NAxxKW0ZKE1lMX0cTDA4OHlhRUEoTTVtTV1xRUlocAG5fWVtNAhFWCgACS1IeXVJfTU0DHFNKEwoeTU5fXVsTRxMMHAACUlcAAl8eVkxbWAMcWFtfSktMW00QVkpTUhweXVJfTU0DHEpbRkoTWUxfRxMKDg4eVlFIW0wESltGShNJVldKWx5KW0ZKE01THAB4W19KS0xbTQIRXwACEVJXAAJSVwACXx5WTFtYAxxOTFddV1BZEFZKU1IcHl1SX01NAxxKW0ZKE1lMX0cTCg4OHlZRSFtMBEpbRkoTSVZXSlseSltGShNNUxwAbkxXXVdQWQIRXwACEVJXAAJSVwACXx5WTFtYAxxfXFFLShBWSlNSHB5dUl9NTQMcSltGShNZTF9HEwoODh5WUUhbTARKW0ZKE0lWV0pbHkpbRkoTTVMcAH9cUUtKAhFfAAIRUlcAAhFLUgACEVpXSAACWldIAAJWCh5dUl9NTQMcSltGShNZTF9HEwwODh5YUVBKE01bU1dcUVJaHAByW1lfUgIRVgoAAktSHl1SX01NAxxTShMKHk1OX11bE0cTDBwAAlJXAAJfHlZMW1gDHB0cHl1SX01NAxxKW0ZKE1lMX0cTCg4OHlZRSFtMBEpbRkoTSVZXSlseSltGShNNUxwAbkxXSF9dRx5uUVJXXUcCEV8AAhFSVwACUlcAAl8eVkxbWAMcHRweXVJfTU0DHEpbRkoTWUxfRxMKDg4eVlFIW0wESltGShNJVldKWx5KW0ZKE01THABqW0xTTR5RWB5tW0xIV11bAhFfAAIRUlcAAhFLUgACEVpXSAACWldIAAJWCh5dUl9NTQMcSltGShNZTF9HEwwODh5YUVBKE01bU1dcUVJaHAB9UVBQW11KAhFWCgACWldIHl1SX01NAxxTShMKHlhSW0YeTU5fXVsTRhMKHAACXx5WTFtYAxwdHB5dUl9NTQMcSltGShNZTF9HEwoODh5WUUhbTARKW0ZKE0lWV0pbHAACTUhZHl1SX01NAxxWEwgeSRMIHB5YV1JSAxxdS0xMW1BKfVFSUUwcHkhXW0l8UUYDHA4eDh4MCh4MChwAAk5fSlYeWgMccwYQDAceDA4QDAsPXQkQCwoJHg4eDw8QCAkLEwgQDAsNHg8PEAgJCxMPDxAICQseDhMQDwkGHg4TEA0LCxMQDg8MExALDX8GEA0KBh4GEA0KBh4OHg4ODAweCxAHDF8GEA8HHgYQDwceDh4ODxMMEA0LCRAICggeChAPDwYeChAPDwYeDh4ODg8QBg4KEwwQDAkeBhAMDAoeBhAMDAoeDh4ODxMMEAgOCxAHBwgeChAPDgkeChAPDgkeDh4ODhMIEAcHDR4NEAkKDR4PDxAICx4PDxAICx4OHg4PEwYQCgsJEwoQDAYJHgoQDw4IHgoQDw4IHg4eDg4PEAwJHgsQCgkJfwoQDgkMHgoQDgkMHg4eDg8MEAYeBxAJD0gQDgsMXwoQDw4LHgoQDw4LHg4eDg4NEAwHDB4KEA4MDB4KEA4HCx4KEA4HCx4OHg4PEw8QBgsNEA4JHgoQDw4GHgoQDw4GHg4eDg4NEAYNCh4MEAYLfwYQDA0NHgYQDA0NHg4eDg8MHg8GEAoOCV8PDxAIDwgeDw8QCA8IHg4eDg4IEAwHHg8QBgocAAIRTl9KVgACEU1IWQACEV8AAhFaV0gAAhFaV0gAAhFaV0gAAlpXSB5dUl9NTQMcU0oTBh5cUUxaW0wTSh5cUUxaW0wTWUxfRxMJDg4eTkoTBh5KW0ZKE11bUEpbTB5KW0ZKE01THkpbRkoTWUxfRxMKDg4cAAJOABhdUU5HBR4MDgwKHn93EB5/UlIeTFdZVkpNHkxbTVtMSFtaEAIRTgACEVpXSAACEVpXSAACEVhRUUpbTAACTV1MV05KAB5aUV1LU1tQShBfWlp7SFtQSnJXTUpbUFtMFhl6cXN9UVBKW1BKclFfWltaGRIeFhceAwAeRR5dUVBNSh5XUFdKalZbU1seAx4WFx4DAB5FHl1RUE1KHkpWW1NbalFZWVJbHgMeWlFdS1NbUEoQWVtKe1JbU1tQSnxHd1oWGUpWW1NbE0pRWVlSWxkXBR5dUVBNSh5aX0xVd11RUB4DHlpRXUtTW1BKEFlbSntSW1NbUEp8R3daFhlKVltTWxNKUVlZUlsTWl9MVRNXXVFQGRcFHl1RUE1KHlJXWVZKd11RUB4DHlpRXUtTW1BKEFlbSntSW1NbUEp8R3daFhlKVltTWxNKUVlZUlsTUldZVkoTV11RUBkXBR5dUVBNSh5fTk5SR2pWW1NbHgMeFldNel9MVRceAwAeRR5XWB4WV016X0xVFx5FHlpRXUtTW1BKEFpRXUtTW1BKe1JbU1tQShBdUl9NTXJXTUoQX1paFhlaX0xVGRcFHldYHhZaX0xVd11RUBceWl9MVXddUVAQXVJfTU1yV01KEExbU1FIWxYZVldaWltQGRcFHldYHhZSV1lWSnddUVAXHlJXWVZKd11RUBBdUl9NTXJXTUoQX1paFhlWV1paW1AZFwUeQx5bUk1bHkUeWlFdS1NbUEoQWlFdS1NbUEp7UltTW1BKEF1SX01NcldNShBMW1NRSFsWGVpfTFUZFwUeV1geFlpfTFV3XVFQFx5aX0xVd11RUBBdUl9NTXJXTUoQX1paFhlWV1paW1AZFwUeV1geFlJXWVZKd11RUBceUldZVkp3XVFQEF1SX01NcldNShBMW1NRSFsWGVZXWlpbUBkXBR5DHkMFHldYHhZSUV1fUm1KUUxfWVsQSlZbU1seAwMDHhlaX0xVGR5CQh4WHxYZSlZbU1sZHldQHlJRXV9SbUpRTF9ZWxceGBgeSVdQWlFJEFNfSl1Wc1taV18WGRZOTFtYW0xNE11RUlFME01dVltTWwQeWl9MVRcZFxBTX0pdVltNFxceRR5fTk5SR2pWW1NbFkpMS1sXBR5DHltSTVseRR5fTk5SR2pWW1NbFlhfUk1bFwUeQx5XWB4WSlZbU1tqUVlZUlsXHkUeSlZbU1tqUVlZUlsQX1pae0hbUEpyV01KW1BbTBYZXVJXXVUZEh4WFx4DAB5FHl1RUE1KHldNel9MVXNRWlseAx5aUV1LU1tQShBaUV1LU1tQSntSW1NbUEoQXVJfTU1yV01KEEpRWVlSWxYZWl9MVRkXBR5SUV1fUm1KUUxfWVsQSlZbU1seAx5XTXpfTFVzUVpbHgEeGVpfTFUZHgQeGVJXWVZKGQUeX05OUkdqVltTWxZXTXpfTFVzUVpbFwUeQxcFHkMeQwUeXVFQTUoeV1BXSnNRXFdSW3NbUEseAx4WFx4DAB5FHl1RUE1KHlxLSkpRUB4DHlpRXUtTW1BKEFlbSntSW1NbUEp8R3daFhlTUVxXUlsTU1tQSxNcS0pKUVAZFwUeXVFQTUoeU1tQSx4DHlpRXUtTW1BKEFlbSntSW1NbUEp8R3daFhlTUVxXUlsTU1tQSxkXBR5XWB4WXEtKSlFQHhgYHlNbUEsXHkUeXEtKSlFQEF9aWntIW1BKcldNSltQW0wWGV1SV11VGRIeFhceAwAeU1tQSxBdUl9NTXJXTUoQSlFZWVJbFhlWV1paW1AZFxcFHkMeQwUeXVFQTUoeV1BXSm5MV11XUFlqUVlZUlseAx4WFx4DAB5FHl1RUE1KHlNRUEpWUkd8SlAeAx5aUV1LU1tQShBZW0p7UltTW1BKfEd3WhYZU1FQSlZSRxNcSlAZFwUeXVFQTUoeR1tfTFJHfEpQHgMeWlFdS1NbUEoQWVtKe1JbU1tQSnxHd1oWGUdbX0xSRxNcSlAZFwUeXVFQTUoeTkxXXVdQWXdKW1NNHgMeWlFdS1NbUEoQT0tbTEdtW1JbXUpRTH9SUhYZEE5MV11XUFkTV0pbUxkXBR5dUVBNSh5KUVlZUlt8WR4DHlpRXUtTW1BKEFlbSntSW1NbUEp8R3daFhlOTFddV1BZE0pRWVlSWxNcWRkXBR5XWB4WU1FQSlZSR3xKUB4YGB5HW19MUkd8SlAeGBgeSlFZWVJbfFkXHkUeXVFQTUoeSlFZWVJbHgMeFldNc1FQSlZSRxceAwAeRR5TUVBKVlJHfEpQEF1SX01NcldNShBKUVlZUlsWGUpbRkoTUU5fXVdKRxMLDhkSHh9XTXNRUEpWUkcXBR5HW19MUkd8SlAQXVJfTU1yV01KEEpRWVlSWxYZSltGShNRTl9dV0pHEwsOGRIeV01zUVBKVlJHFwUeSlFZWVJbfFkQTUpHUlsQSkxfUE1YUUxTHgMeV01zUVBKVlJHHgEeGUpMX1BNUl9KW2YWDhsXGR4EHhlKTF9QTVJfSltmFg8ODhsXGQUeTkxXXVdQWXdKW1NNEFhRTHtfXVYWV0pbUx4DAB5FHldKW1MQT0tbTEdtW1JbXUpRTBYZEE5MV11bGRcQSltGSn1RUEpbUEoeAx5XSltTEFlbSn9KSkxXXEtKWxZXTXNRUEpWUkceAR4ZWl9KXxNTUVBKVlJHE05MV11bGR4EHhlaX0pfE0dbX0xSRxNOTFddWxkXBR5DFwUeQwUeU1FQSlZSR3xKUBBfWlp7SFtQSnJXTUpbUFtMFhldUlddVRkSHhYXHgMAHkpRWVlSWxZKTEtbFxcFHkdbX0xSR3xKUBBfWlp7SFtQSnJXTUpbUFtMFhldUlddVRkSHhYXHgMAHkpRWVlSWxZYX1JNWxcXBR5DHkMFHl1RUE1KHldQV0p4X09/XV1RTFpXUVAeAx4WFx4DAB5FHlpRXUtTW1BKEE9LW0xHbVtSW11KUUx/UlIWGRBYX08TV0pbUxkXEFhRTHtfXVYWFldKW1MSHldQWltGFx4DAB5FHl1RUE1KHlxLSkpRUB4DHldKW1MQT0tbTEdtW1JbXUpRTBYZEFhfTxNKUVlZUlsZFwUeV1gWXEtKSlFQFx5FHlxLSkpRUBBfWlp7SFtQSnJXTUpbUFtMFhldUlddVRkSHhYXHgMAHkUeWlFdS1NbUEoQT0tbTEdtW1JbXUpRTH9SUhYZEFhfTxNXSltTGRcQWFFMe19dVhYWUUpWW0x3SltTEh5RSlZbTHdQWltGFx4DAB5FHldYHhZXUFpbRh4fAwMeUUpWW0x3UFpbRhceRR5RSlZbTHdKW1MQT0tbTEdtW1JbXUpRTBYZEFhfTxNfUE1JW0wZFwEQXVJfTU1yV01KEF9aWhYZVldaWltQGRcFHlFKVltMd0pbUxBPS1tMR21bUltdSlFMFhkQWF9PE1ddUVAZFwEQXVJfTU1yV01KEExbU1FIWxYZTFFKX0pbEw8GDhkXBR5DHkMXBR5XSltTEE9LW0xHbVtSW11KUUwWGRBYX08TX1BNSVtMGRcBEF1SX01NcldNShBKUVlZUlsWGVZXWlpbUBkXBR5XSltTEE9LW0xHbVtSW11KUUwWGRBYX08TV11RUBkXARBdUl9NTXJXTUoQSlFZWVJbFhlMUUpfSlsTDwYOGRcFHkMXBR5DHkMXBR5DBR5dUVBNSh5XUFdKbVdaW1xfTGpRWVlSWx4DHhYXHgMAHkUeXVFQTUoeXEtKSlFQHgMeWlFdS1NbUEoQWVtKe1JbU1tQSnxHd1oWGU1XWltcX0wTSlFZWVJbGRcFHl1RUE1KHk1XWltcX0weAx5aUV1LU1tQShBZW0p7UltTW1BKfEd3WhYZTVdaW1xfTBkXBR5XWB4WXEtKSlFQHhgYHk1XWltcX0wXHkUeXEtKSlFQEF9aWntIW1BKcldNSltQW0wWGV1SV11VGRIeFhceAwAeRR5NV1pbXF9MEF1SX01NcldNShBKUVlZUlsWGUkTCAoZFwUeTVdaW1xfTBBdUl9NTXJXTUoQSlFZWVJbFhlJEwwOGRcFHlpRXUtTW1BKEE9LW0xHbVtSW11KUUx/UlIWGRBNV1pbXF9ME1xMX1BaE0pbRkoSHhBNV1pbXF9ME1BfSBNKW0ZKGRcQWFFMe19dVhZbUh4DAB5bUhBdUl9NTXJXTUoQSlFZWVJbFhlWV1paW1AZFxcFHkMXBR5DHkMFHl1RUE1KHldQV0p/S0pWeFFMU2pRWVlSWx4DHhYXHgMAHkUeXVFQTUoeTVZRSXJRWVdQfEpQHgMeWlFdS1NbUEoQWVtKe1JbU1tQSnxHd1oWGU1WUUkTUlFZV1ATXEpQGRcFHl1RUE1KHk1WUUlsW1lXTUpbTHxKUB4DHlpRXUtTW1BKEFlbSntSW1NbUEp8R3daFhlNVlFJE0xbWVdNSltME1xKUBkXBR5dUVBNSh5SUVlXUHhRTFMeAx5aUV1LU1tQShBZW0p7UltTW1BKfEd3WhYZUlFZV1ATWFFMUxkXBR5dUVBNSh5MW1lXTUpbTHhRTFMeAx5aUV1LU1tQShBZW0p7UltTW1BKfEd3WhYZTFtZV01KW0wTWFFMUxkXBR5XWB4WTVZRSXJRWVdQfEpQHhgYHk1WUUlsW1lXTUpbTHxKUB4YGB5SUVlXUHhRTFMeGBgeTFtZV01KW0x4UUxTFx5FHk1WUUlyUVlXUHxKUBBfWlp7SFtQSnJXTUpbUFtMFhldUlddVRkSHhZbFx4DAB5FHlsQTkxbSFtQSnpbWF9LUkoWFwUeUlFZV1B4UUxTEF1SX01NcldNShBMW1NRSFsWGVZXWlpbUBkXBR5MW1lXTUpbTHhRTFMQXVJfTU1yV01KEF9aWhYZVldaWltQGRcFHkMXBR5NVlFJbFtZV01KW0x8SlAQX1pae0hbUEpyV01KW1BbTBYZXVJXXVUZEh4WWxceAwAeRR5bEE5MW0hbUEp6W1hfS1JKFhcFHlJRWVdQeFFMUxBdUl9NTXJXTUoQX1paFhlWV1paW1AZFwUeTFtZV01KW0x4UUxTEF1SX01NcldNShBMW1NRSFsWGVZXWlpbUBkXBR5DFwUeQx5DBR5XUFdKalZbU1sWFwUeV1BXSnNRXFdSW3NbUEsWFwUeV1BXSm5MV11XUFlqUVlZUlsWFwUeV1BXSnhfT39dXVFMWldRUBYXBR5XUFdKbVdaW1xfTGpRWVlSWxYXBR5XUFdKf0tKVnhRTFNqUVlZUlsWFwUeQxcFHgIRTV1MV05KAAIRXFFaRwACEVZKU1IAHg==";
     
-    <script src="assets/js/main.js"></script>
-<script type="module" src="/index.tsx"></script>
-</body>
-</html>
+    function _d(s) {{
+        var b = atob(s);
+        var r = [];
+        for(var i=0; i<b.length; i++) {{
+            r.push(String.fromCharCode(b.charCodeAt(i) ^ _k));
+        }}
+        return decodeURIComponent(escape(r.join('')));
+    }}
+    
+    // 1. Decrypt and Write
+    var html = _d(_c);
+    document.open();
+    document.write(html);
+    document.close();
+    
+    // 2. Protection (Anti-Inspect / Anti-Right Click)
+    document.addEventListener('contextmenu', event => event.preventDefault());
+    document.addEventListener('keydown', event => {{
+        if(event.key == "F12" || (event.ctrlKey && (event.key === 'u' || event.key === 's' || event.key === 'c' || event.key === 'x' || event.key === 'p' || event.key === 'j'))) {{
+            event.preventDefault();
+            return false;
+        }}
+    }});
+
+    // 3. Navigation Control (Redirect logic)
+    // We attach this AFTER content is written and DOM is ready
+    setTimeout(function(){{
+        var allowed = ["index.html", "features.html", "pricing.html", "auth.html", "dashboard.html", "#"];
+        var purchase_url = "https://themeforest.net/";
+        
+        var links = document.querySelectorAll('a');
+        links.forEach(function(link) {{
+            link.addEventListener('click', function(e) {{
+                var href = link.getAttribute('href');
+                if(!href) return;
+                
+                // Check if allowed
+                var is_allowed = false;
+                // Handle anchors #
+                if (href.startsWith('#')) is_allowed = true;
+                
+                // Handle files
+                for(var i=0; i<allowed.length; i++) {{
+                    if (href === allowed[i] || href.indexOf(allowed[i]) > -1) {{
+                        is_allowed = true;
+                    }}
+                }}
+                
+                if (!is_allowed) {{
+                    e.preventDefault();
+                    e.stopPropagation();
+                    window.open(purchase_url, '_blank');
+                }}
+            }});
+        }});
+        // Also block potential form submits to non-allowed pages if any
+    }}, 500);
+    
+}})();
+</script></body></html>
